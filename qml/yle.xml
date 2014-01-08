@@ -1,0 +1,42 @@
+<radio id="yle">
+ <channels>
+
+  <channel>
+	<name>YLE X3M</name>
+	<streams>
+	<stream quality="low">http://stream2.yle.mobi:8000/x3m.mp3</stream>
+	<stream quality="medium">http://stream2.yle.mobi:8000/livex3m128.mp3</stream>
+	<stream quality="high">http://stream2.yle.mobi:8000/livex3m256.mp3</stream>
+	</streams>
+	<news type="rss">http://svenska.yle.fi/rss/x3m</news>
+  </channel>
+
+  <channel>
+	<name>YLEX</name>
+	<streams>
+	<stream quality="low">http://stream2.yle.mobi:8000/ylex.mp3</stream>
+	<stream quality="medium">http://stream2.yle.mobi:8000/liveylex128.mp3</stream>
+	<stream quality="high">http://stream2.yle.mobi:8000/liveylex256.mp3</stream>
+	</streams>
+  </channel>
+
+  <channel>
+	<name>YLE Vega</name>
+	<streams>
+	<stream quality="low"></stream>
+	<stream quality="medium"></stream>
+	<stream quality="high"></stream>
+	</streams>
+  </channel>
+
+  <channel>
+	<name>YLE 1</name>
+	<streams>
+	<stream quality="low"></stream>
+	<stream quality="medium"></stream>
+	<stream quality="high"></stream>
+	</streams>
+  </channel>
+
+ </channels>
+</radio>
