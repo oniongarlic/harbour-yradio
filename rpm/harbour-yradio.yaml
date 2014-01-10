@@ -1,6 +1,6 @@
 Name: harbour-yradio
 Summary: Y-Radio
-Version: 0.0.1
+Version: 1.0.0
 Release: 1
 Group: Qt/Qt
 URL: http://example.org/
@@ -27,5 +27,4 @@ Files:
 - /usr/share/harbour-yradio
 - /usr/share/applications
 - /usr/share/icons/hicolor/86x86/apps
-- 
 PkgBR: []
