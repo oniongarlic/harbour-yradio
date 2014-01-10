@@ -4,10 +4,11 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
-    property string versionStr: qsTr("Version 1.0.0");
+    property string versionStr: qsTr("1.0.0");
 
     property string helpText: qsTr("Unofficial YLE Radio application for Sailfish OS. Listen to the radio streams, see what is playing.")+
-                              qsTr("Note: This is a third-party program and is not connected to YLE in any way.");
+                              qsTr("Note: This is a third-party program and is not connected to YLE in any way.")+
+                              qsTr("Artist images provided by Nokia MixRadio.");
 
     property string license: 'This program is free software: you can redistribute it and/or modify ' +
                              'it under the terms of the GNU General Public License as published by ' +
@@ -29,11 +30,23 @@ Page {
         SilicaFlickable {
             anchors.fill: parent
 
-            Label {
-                id: nameField
-                anchors.fill: parent;
-                text: license
-                wrapMode: Text.WordWrap
+            Column {
+                id: cs
+                anchors.fill: parent                
+                spacing: Theme.paddingLarge
+                anchors.margins: Theme.paddingLarge
+                PageHeader {
+                    title: "License"
+                }
+
+                Label {
+                    id: nameField
+                    text: license
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                    width: parent.width;
+                    onLinkActivated: Qt.openUrlExternally(link)
+                }
             }
         }
     }
@@ -43,19 +56,13 @@ Page {
 
         Column {
             id: aboutColumn
-            anchors.verticalCenter: parent.verticalCenter
-            //            anchors.margins: B.DEFAULT_MARGIN
-            anchors.left: parent.left
-            anchors.right: parent.right
-            //            spacing: B.DEFAULT_MARGIN
-
-            Label
-            {
-                text: "Y-Radio "+versionStr
-                horizontalAlignment: Text.AlignHCenter
-                font.pixelSize: Theme.fontSizeExtraLarge
-                anchors.horizontalCenter: parent.horizontalCenter
+            anchors.fill: parent;
+            anchors.margins: Theme.paddingLarge
+            spacing: Theme.paddingLarge
+            PageHeader {
+                title: "Y-Radio "+versionStr
             }
+
             Label
             {
                 id: help
@@ -73,12 +80,12 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.topMargin: 20
-                width: parent.width/3
-                textFormat: Text.RichText
+                width: parent.width/3                
                 text: "<style>a { color: #f0f0ff; display: block; margin-left: auto; margin-right: auto;}</style>"+
                       "<a href='mailto:onion@tal.org'>onion@tal.org</a><br/>"+
                       "<a href='http://www.tal.org/'>www.tal.org</a>"
                 horizontalAlignment: Text.AlignHCenter
+                textFormat: Text.RichText
                 onLinkActivated: Qt.openUrlExternally(link)
             }
 
@@ -104,12 +111,9 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr('Flattr it!')
                 onClicked: {
-                    Qt.openUrlExternally("https://flattr.com/submit/auto?user_id=oniongarlic&url=http://maemo.tal.org/index.php/maemo:radiox3m&title=RadioX3M&language=en_GB&tags=n9&category=software");
+                    Qt.openUrlExternally("https://flattr.com/submit/auto?user_id=oniongarlic&url=http://maemo.tal.org/index.php/maemo:yradio&title=YRadio&language=en_GB&tags=jolla&category=software");
                 }
             }
-
         }
-
     }
-
 }

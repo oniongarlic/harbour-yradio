@@ -12,4 +12,5 @@ XmlListModel {
     XmlRole { name: "stream_high"; query: "streams/stream[@quality='high']/string()" }
     XmlRole { name: "stream_medium"; query: "streams/stream[@quality='medium']/string()" }
     XmlRole { name: "stream_low"; query: "streams/stream[@quality='low']/string()" }
+    XmlRole { name: "song_info_id"; query: "songInfo/string()" }
 }

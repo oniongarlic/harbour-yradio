@@ -5,37 +5,47 @@ import ".."
 
 CoverBackground {
 
-    property string currentArtist;
-    property string currentSong;
-    property string currentProgram;
-    property string currentChannel;
-
-    property RadioPlayer player;
+    property RadioPlayer player;    
     property Image artistImage;
 
-    anchors.fill: parent
+    /*
+      xxx: hmm, hmm, hmm..
+    Image {
+        anchors.horizontalCenter: parent.horizontalCenter
+
+    }
+    */
 
     Label {
-        id: label
-        anchors.centerIn: parent
-        text: "YLE"
+        text: "Y-Radio"
+        font.pixelSize: Theme.fontSizeLarge
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    CoverPlaceholder {
+        text: player.currentChannel===null ? "No channel selected" : player.currentChannel.name;
+        // icon: artistImage;
     }
 
     CoverActionList {
         id: coverActions
 
-        iconBackground: artistImage.visible
-        // enabled: player.playing
+        // iconBackground: artistImage.visible
+        // enabled: player.currentChannel!==null
+        enabled: player.source ? true : false;
 
         CoverAction {
             iconSource: player.playing ? "image://theme/icon-cover-pause" : "image://theme/icon-cover-play"
             onTriggered: player.toggle()
         }
 
+        /*
         CoverAction {
             iconSource: "image://theme/icon-cover-next-song"
             onTriggered: player.playNext()
         }
+        */
     }
 
 

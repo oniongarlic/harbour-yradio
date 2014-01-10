@@ -10,17 +10,16 @@ TARGET = harbour-yradio
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-yradio.cpp
+SOURCES += src/harbour-yradio.cpp src/settings.cpp
 
-OTHER_FILES += qml/harbour-yradio.qml \
-    qml/cover/CoverPage.qml \
+HEADERS += src/settings.h
+
+OTHER_FILES += qml/*.qml \
+    qml/cover/*.qml \
+    qml/pages/*.qml \
+    qml/yle.xml \
+    qml/*.js \
     rpm/harbour-yradio.spec \
     rpm/harbour-yradio.yaml \
-    harbour-yradio.desktop \
-    qml/pages/MainPage.qml \
-    qml/pages/AboutPage.qml \
-    qml/pages/SettingsPage.qml \
-    qml/RadioPlayer.qml \
-    qml/ChannelsModel.qml \
-    qml/yle.xml
+    harbour-yradio.desktop
 

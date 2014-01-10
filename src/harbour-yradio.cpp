@@ -32,20 +32,41 @@
 #include <QtQuick>
 #endif
 
-#include <sailfishapp.h>
+#include <QTranslator>
+#include <QTextCodec>
+#include <QLocale>
 
+#include <sailfishapp.h>
+#include "settings.h"
 
 int main(int argc, char *argv[])
 {
-    // SailfishApp::main() will display "qml/template.qml", if you need more
-    // control over initialization, you can use:
-    //
-    //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
-    //   - SailfishApp::createView() to get a new QQuickView * instance
-    //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
-    //
-    // To display the view, call "show()" (will show fullscreen on device).
+    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    QTranslator translator;
+    Settings *settings;
 
-    return SailfishApp::main(argc, argv);
+    app->setApplicationName("harbour-yradio");
+    app->setApplicationVersion("1.0.0");
+    app->setOrganizationDomain("org.tal");
+    app->setOrganizationName("TalOrg");
+
+    // QTextCodec::setCodecForTr(QTextCodec::codecForName("utf8"));
+    QString locale(QLocale::system().name());
+
+    if (translator.load("harbour-yradio." + locale, ":/nls")) {
+        qDebug() << "Locale: " << locale;
+        app->installTranslator(&translator);
+    }
+
+    settings = new Settings();
+
+    view->rootContext()->setContextProperty("settings", settings);
+
+    view->setSource(SailfishApp::pathTo("qml/harbour-yradio.qml"));
+
+    view->showFullScreen();
+
+    return app->exec();
 }
 

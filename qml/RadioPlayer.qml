@@ -5,9 +5,9 @@ import QtMultimedia 5.0
 Audio {
     id: radioPlayer
     autoLoad: false;
-    autoPlay: false;
-    source: "http://stream2.yle.mobi:8000/livex3m128.mp3"
+    autoPlay: false;    
     property bool playing: false;
+    property Channel currentChannel: null;
 
     onStopped:{
         console.debug("** STOPPED");

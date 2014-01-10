@@ -10,6 +10,8 @@
 	<stream quality="high">http://stream2.yle.mobi:8000/livex3m256.mp3</stream>
 	</streams>
 	<news type="rss">http://svenska.yle.fi/rss/x3m</news>
+        <songInfo>r44</songInfo>
+	<progInfo>extrem</progInfo>
   </channel>
 
   <channel>
@@ -19,25 +21,82 @@
 	<stream quality="medium">http://stream2.yle.mobi:8000/liveylex128.mp3</stream>
 	<stream quality="high">http://stream2.yle.mobi:8000/liveylex256.mp3</stream>
 	</streams>
+        <songInfo>r02</songInfo>
+	<progInfo>ylex</progInfo>
   </channel>
 
   <channel>
-	<name>YLE Vega</name>
+	<name>YLE Radio Vega (Åboland)</name>
 	<streams>
-	<stream quality="low"></stream>
-	<stream quality="medium"></stream>
-	<stream quality="high"></stream>
+	<stream quality="low">http://stream2.yle.mobi:8000/vega_aboland.mp3</stream>
+	<stream quality="medium">http://stream2.yle.mobi:8000/vegaaboland128.mp3</stream>
+	<stream quality="high">http://stream2.yle.mobi:8000/vegaaboland256.mp3</stream>
 	</streams>
+	<progInfo>vega/aboland</progInfo>
+  </channel>
+
+  <!-- 
+  <channel>
+        <name></name>
+	<streams>
+	 <stream quality="low"></stream>
+	 <stream quality="medium"></stream>
+	 <stream quality="high"></stream>
+	</streams>
+	<news></news>
+	<somes>
+	 <some type="twitter"></some>
+	 <some type="facebook"></some>
+	 <some type="youtube"></some>
+	 <some type="instagram"></some>
+	</somes>
+        <songInfo></songInfo>
+	<progInfo></progInfo>
+  </channel>
+  -->
+
+  <channel>
+        <name>YLE Suomi (Turku)</name>
+	<streams>
+	 <stream quality="low">http://stream2.yle.mobi:8000/a_turunradio.mp3</stream>
+	 <stream quality="medium">http://stream2.yle.mobi:8000/a_turunradio128.mp3</stream>
+	 <stream quality="high">http://stream2.yle.mobi:8000/a_turunradio256.mp3</stream>
+	</streams>
+        <songInfo></songInfo>
+	<progInfo></progInfo>
   </channel>
 
   <channel>
-	<name>YLE 1</name>
+	<name>YLE Radio 1</name>
 	<streams>
-	<stream quality="low"></stream>
-	<stream quality="medium"></stream>
-	<stream quality="high"></stream>
+        <stream quality="low">http://stream2.yle.mobi:8000/radio1.mp3</stream>
+	<stream quality="medium">http://stream2.yle.mobi:8000/liveradio1128.mp3</stream>
+	<stream quality="high">http://stream2.yle.mobi:8000/liveradio1256.mp3</stream>
 	</streams>
+        <songInfo>r01</songInfo>
+	<progInfo>yleradio1</progInfo>
   </channel>
 
+  <channel>
+        <name>YLE Sami</name>
+	<streams>
+	 <stream quality="low">http://stream2.yle.mobi:8000/samiradio.mp3</stream>
+	 <stream quality="medium">http://stream2.yle.mobi:8000/samiradio128.mp3</stream>
+	 <stream quality="high">http://stream2.yle.mobi:8000/samiradio256.mp3</stream>
+	</streams>
+        <songInfo></songInfo>
+	<progInfo></progInfo>
+  </channel>
+  
+    <channel>
+        <name>YLE Klassinen</name>
+	<streams>
+	<stream quality="low">http://stream2.yle.mobi:8000/liveklassinen.mp3</stream>
+	<stream quality="medium">http://stream2.yle.mobi:8000/liveklassinen128.mp3</stream>
+	<stream quality="high">http://stream2.yle.mobi:8000/liveklassinen256.mp3</stream>
+	</streams>
+	<progInfo>ylenklassinen</progInfo>
+  </channel>
+  
  </channels>
 </radio>
