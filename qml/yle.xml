@@ -21,8 +21,15 @@
 	<stream quality="medium">http://stream2.yle.mobi:8000/liveylex128.mp3</stream>
 	<stream quality="high">http://stream2.yle.mobi:8000/liveylex256.mp3</stream>
 	</streams>
+	<news type="rss"></news>
         <songInfo>r02</songInfo>
 	<progInfo>ylex</progInfo>
+	<somes>
+	 <some type="twitter">http://www.twitter.com/ylex</some>
+	 <some type="facebook">http://www.facebook.com/ylex.fi</some>
+	 <some type="youtube">http://www.youtube.com/user/ylexvideos</some>
+	 <some type="instagram">http://instagram.com/ylex_official</some>
+	</somes>
   </channel>
 
   <channel>
@@ -32,6 +39,7 @@
 	<stream quality="medium">http://stream2.yle.mobi:8000/vegaaboland128.mp3</stream>
 	<stream quality="high">http://stream2.yle.mobi:8000/vegaaboland256.mp3</stream>
 	</streams>
+	<news>http://svenska.yle.fi/rss/radio-vega</news>
 	<progInfo>vega/aboland</progInfo>
   </channel>
 
@@ -96,6 +104,24 @@
 	<stream quality="high">http://stream2.yle.mobi:8000/liveklassinen256.mp3</stream>
 	</streams>
 	<progInfo>ylenklassinen</progInfo>
+  </channel>
+
+  <channel>
+        <name>YLE Puhe</name>
+	<streams>
+	 <stream quality="low">http://stream2.yle.mobi:8000/ylepuhe.mp3</stream>
+	 <stream quality="medium">http://stream2.yle.mobi:8000/liveradiopuhe128.mp3</stream>
+	 <stream quality="high">http://stream2.yle.mobi:8000/liveradiopuhe256.mp3</stream>
+	</streams>
+	<news></news>
+	<somes>
+	 <some type="twitter"></some>
+	 <some type="facebook">https://www.facebook.com/ylepuhe</some>
+	 <some type="youtube"></some>
+	 <some type="instagram"></some>
+	</somes>
+        <songInfo></songInfo>
+	<progInfo></progInfo>
   </channel>
   
  </channels>
