@@ -21,6 +21,7 @@ CoverBackground {
         font.pixelSize: Theme.fontSizeLarge
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
+        color: Theme.highlightColor
     }
 
     CoverPlaceholder {
@@ -41,14 +42,13 @@ CoverBackground {
         }
 
         /*
+        XXX: Add action to toggle channel ? or ?
         CoverAction {
             iconSource: "image://theme/icon-cover-next-song"
             onTriggered: player.playNext()
         }
         */
     }
-
-
 }
 
 
