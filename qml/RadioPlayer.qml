@@ -1,5 +1,4 @@
 import QtQuick 2.0
-// import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 
 Audio {
@@ -27,14 +26,15 @@ Audio {
         console.debug("*** BUFFERING: "+bufferProgress)
     }
 
-    function toggle() {
-        if (radioPlayer.playing)
-            radioPlayer.stop();
-        else
-            radioPlayer.play();
-    }
-
     onStatusChanged: {
         console.debug("*** STATUS: "+status)
+    }
+
+    function toggle() {
+        if (radioPlayer.playing) {
+            radioPlayer.stop();
+        } else {
+            radioPlayer.play();
+        }
     }
 }
