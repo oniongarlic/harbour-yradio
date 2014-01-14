@@ -1,6 +1,6 @@
 Name: harbour-yradio
 Summary: Y-Radio
-Version: 1.0.0
+Version: 1.0.1
 Release: 1
 Group: Qt/Qt
 URL: http://example.org/
@@ -16,8 +16,10 @@ PkgConfigBR:
 - Qt5Qml
 - Qt5Core
 - sailfishapp >= 0.0.10
+- Qt5Xml
 Requires:
 - sailfishsilica-qt5 >= 0.10.9
+- qt5-qtdeclarative-import-xmllistmodel
 Files:
 - '%{_bindir}'
 - '%{_datadir}/%{name}/qml'
