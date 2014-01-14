@@ -24,6 +24,11 @@ Page {
                 text: "Channels"
                 onClicked: pageStack.push(channelsPage);
             }
+            MenuItem {
+                text: "Programs"
+                onClicked: pageStack.push(programPage);
+                enabled: player.currentChannel===null ? false : true;
+            }
             busy: (player.status==Audio.Loading || player.status==Audio.Buffering) ? true : false;
         }
         contentHeight: column.height
