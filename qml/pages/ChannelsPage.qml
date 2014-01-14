@@ -41,6 +41,7 @@ Page {
                 }
             }
         }
+        VerticalScrollDecorator { flickable: channelList }
     }
 }
 
