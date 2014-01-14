@@ -2,8 +2,7 @@ import QtQuick 2.0
 import QtQuick.XmlListModel 2.0
 
 XmlListModel {
-    id: songInfoModel
-    // source: "http://yle.fi/radiomanint/LiveXML/r44/item("+infoIndex+").xml"
+    id: songInfoModel    
     query: "/RMPADEXPORT/ITEM"
 
     property int infoIndex: 0;
@@ -22,13 +21,8 @@ XmlListModel {
     XmlRole { name: "duration"; query: "PUBLISH-DATA/@DURATION/string()"; }
     XmlRole { name: "program"; query: "@PLAYOUT_PROGRAMME_NAME/string()"; }
 
-    function reloadSongInfo__old() {
-        // work around for a 404 redirect fucking it up
-        songInfoModel.source="";
-        songInfoModel.source="http://yle.fi/radiomanint/LiveXML/r44/item("+infoIndex+").xml";
-        songInfoModel.reload();
-    }
-
+    // We load the information manually, as the server stupidly sends a 404 + redirection if the information is not available and the
+    // model is stuck with the url.
     function reloadSongInfo()
     {
         if (infoId==='')
