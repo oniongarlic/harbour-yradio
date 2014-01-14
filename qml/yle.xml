@@ -2,6 +2,37 @@
 <radio id="yle">
  <channels>
 
+  <!--
+  <channel>
+        <name></name>
+        <streams>
+         <stream quality="low"></stream>
+         <stream quality="medium"></stream>
+         <stream quality="high"></stream>
+        </streams>
+        <news></news>
+        <somes>
+         <some type="twitter"></some>
+         <some type="facebook"></some>
+         <some type="youtube"></some>
+         <some type="instagram"></some>
+        </somes>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+  </channel>
+  -->
+
+  <channel>
+        <name>YLE Radio 1</name>
+        <streams>
+        <stream quality="low">http://stream2.yle.mobi:8000/radio1.mp3</stream>
+        <stream quality="medium">http://stream2.yle.mobi:8000/liveradio1128.mp3</stream>
+        <stream quality="high">http://stream2.yle.mobi:8000/liveradio1256.mp3</stream>
+        </streams>
+        <songInfo>r01</songInfo>
+        <progInfo>yleradio1</progInfo>
+  </channel>
+
   <channel>
 	<name>YLE X3M</name>
 	<streams>
@@ -12,6 +43,13 @@
 	<news type="rss">http://svenska.yle.fi/rss/x3m</news>
         <songInfo>r44</songInfo>
 	<progInfo>extrem</progInfo>
+        <somes>
+         <some type="web">http://yle.fi/extrem/</some>
+         <some type="twitter">https://twitter.com/RadioX3M</some>
+         <some type="facebook">https://m.facebook.com/radiox3m</some>
+         <some type="youtube">http://m.youtube.com/user/RadioX3M</some>
+         <some type="instagram">http://instagram.com/radiox3m</some>
+        </somes>
   </channel>
 
   <channel>
@@ -32,6 +70,46 @@
 	</somes>
   </channel>
 
+    <channel>
+        <name>YLE Klassinen</name>
+        <streams>
+        <stream quality="low">http://stream2.yle.mobi:8000/liveklassinen.mp3</stream>
+        <stream quality="medium">http://stream2.yle.mobi:8000/liveklassinen128.mp3</stream>
+        <stream quality="high">http://stream2.yle.mobi:8000/liveklassinen256.mp3</stream>
+        </streams>
+        <progInfo>ylenklassinen</progInfo>
+  </channel>
+
+  <channel>
+        <name>YLE Puhe</name>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/ylepuhe.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/liveradiopuhe128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/liveradiopuhe256.mp3</stream>
+        </streams>
+        <news></news>
+        <somes>
+         <some type="facebook">https://www.facebook.com/ylepuhe</some>
+        </somes>
+        <songInfo></songInfo>
+        <progInfo>puhe</progInfo>
+  </channel>
+
+  <channel>
+        <name>YLE Sámi Radio</name>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/samiradio.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/samiradio128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/samiradio256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+         <some type="twitter">https://twitter.com/YleSapmi</some>
+         <some type="facebook">https://www.facebook.com/Yle.Sapmi1</some>
+        </somes>
+  </channel>
+
   <channel>
 	<name>YLE Radio Vega (Åboland)</name>
 	<streams>
@@ -43,24 +121,30 @@
 	<progInfo>vega/aboland</progInfo>
   </channel>
 
-  <!-- 
+  <!--
   <channel>
-        <name></name>
-	<streams>
-	 <stream quality="low"></stream>
-	 <stream quality="medium"></stream>
-	 <stream quality="high"></stream>
-	</streams>
-	<news></news>
-	<somes>
-	 <some type="twitter"></some>
-	 <some type="facebook"></some>
-	 <some type="youtube"></some>
-	 <some type="instagram"></some>
-	</somes>
-        <songInfo></songInfo>
-	<progInfo></progInfo>
+        <name>YLE Radio Vega (Österbotten)</name>
+        <streams>
+        <stream quality="low"></stream>
+        <stream quality="medium">http://stream2.yle.mobi:8000/a_vegaosterbotten128.mp3</stream>
+        <stream quality="high">http://stream2.yle.mobi:8000/a_vegaosterbotten256.mp3</stream>
+        </streams>
+        <news>http://svenska.yle.fi/rss/radio-vega</news>
+        <progInfo>vega/osterbotten</progInfo>
   </channel>
+
+  <channel>
+        <name>YLE Radio Vega (Öst Nyland)</name>
+        <streams>
+        <stream quality="low"></stream>
+        <stream quality="medium">http://stream2.yle.mobi:8000/a_vegaost128.mp3</stream>
+        <stream quality="high">http://stream2.yle.mobi:8000/a_vegaost256.mp3</stream>
+        </streams>
+        <news>http://svenska.yle.fi/rss/radio-vega</news>
+        <progInfo>vega/ostnyland</progInfo>
+  </channel>
+
+
   -->
 
   <channel>
@@ -72,57 +156,7 @@
 	</streams>
         <songInfo></songInfo>
 	<progInfo></progInfo>
-  </channel>
-
-  <channel>
-	<name>YLE Radio 1</name>
-	<streams>
-        <stream quality="low">http://stream2.yle.mobi:8000/radio1.mp3</stream>
-	<stream quality="medium">http://stream2.yle.mobi:8000/liveradio1128.mp3</stream>
-	<stream quality="high">http://stream2.yle.mobi:8000/liveradio1256.mp3</stream>
-	</streams>
-        <songInfo>r01</songInfo>
-	<progInfo>yleradio1</progInfo>
-  </channel>
-
-  <channel>
-        <name>YLE Sami</name>
-	<streams>
-	 <stream quality="low">http://stream2.yle.mobi:8000/samiradio.mp3</stream>
-	 <stream quality="medium">http://stream2.yle.mobi:8000/samiradio128.mp3</stream>
-	 <stream quality="high">http://stream2.yle.mobi:8000/samiradio256.mp3</stream>
-	</streams>
-        <songInfo></songInfo>
-	<progInfo></progInfo>
-  </channel>
-  
-    <channel>
-        <name>YLE Klassinen</name>
-	<streams>
-	<stream quality="low">http://stream2.yle.mobi:8000/liveklassinen.mp3</stream>
-	<stream quality="medium">http://stream2.yle.mobi:8000/liveklassinen128.mp3</stream>
-	<stream quality="high">http://stream2.yle.mobi:8000/liveklassinen256.mp3</stream>
-	</streams>
-	<progInfo>ylenklassinen</progInfo>
-  </channel>
-
-  <channel>
-        <name>YLE Puhe</name>
-	<streams>
-	 <stream quality="low">http://stream2.yle.mobi:8000/ylepuhe.mp3</stream>
-	 <stream quality="medium">http://stream2.yle.mobi:8000/liveradiopuhe128.mp3</stream>
-	 <stream quality="high">http://stream2.yle.mobi:8000/liveradiopuhe256.mp3</stream>
-	</streams>
-	<news></news>
-	<somes>
-	 <some type="twitter"></some>
-	 <some type="facebook">https://www.facebook.com/ylepuhe</some>
-	 <some type="youtube"></some>
-	 <some type="instagram"></some>
-	</somes>
-        <songInfo></songInfo>
-	<progInfo></progInfo>
-  </channel>
+  </channel>  
   
  </channels>
 </radio>
