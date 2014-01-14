@@ -93,15 +93,11 @@ BackgroundItem {
             visible: curSong!=='';
             font.pixelSize: Theme.fontSizeLarge
         }
-        Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            id: nowPlayingText
-            text: curSongArtist+" - "+curSong;
-            font.bold: true
-            horizontalAlignment: Text.AlignHCenter            
-            wrapMode: Text.WordWrap
-            width: parent.width
-            font.pixelSize: Theme.fontSizeMedium
+
+        SongItem {
+            artist: curSongArtist;
+            song: curSong;
+            visible: curSong!=='';
         }
 
         Image {
@@ -150,24 +146,16 @@ BackgroundItem {
             font.pixelSize: Theme.fontSizeMedium
         }
 
-        Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            id: nextSongText;
-            text: nextSongArtist+" - "+nextSong;
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-            width: parent.width
-            font.pixelSize: Theme.fontSizeSmall
+        SongItem {
+            artist: nextSongArtist;
+            song: nextSong;
+            visible: nextSong!=='';
         }
 
-        Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            id: nextNextSongText;
-            text: nextNextSongArtist+" - "+nextNextSong;
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-            width: parent.width
-            font.pixelSize: Theme.fontSizeSmall
+        SongItem {
+            artist: nextNextSongArtist;
+            song: nextNextSong;
+            visible: nextNextSong!=='';
         }
     }
 
