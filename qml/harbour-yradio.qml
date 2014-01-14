@@ -46,6 +46,13 @@ ApplicationWindow
         }
     }
 
+    Component {
+        id: programPage
+        ProgramPage {
+
+        }
+    }
+
     Channel {
         id: currentChannel
     }
@@ -78,7 +85,7 @@ ApplicationWindow
     property alias radioSource: radioPlayer.source;
 
     RadioPlayer {
-        id: radioPlayer
+        id: radioPlayer        
     }
 
     ChannelsModel {
