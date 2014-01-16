@@ -75,9 +75,8 @@ ApplicationWindow
         currentChannel.programInfoId='';
 
         radioPlayer.currentChannel=currentChannel;
-
         radioPlayer.stop();
-        radioPlayer.source=currentChannel.getStreamUrl(streamQuality);
+        // radioPlayer.source=currentChannel.getStreamUrl(streamQuality);
         if (wasPlaying && startPlay)
             radioPlayer.play();        
     }
@@ -85,7 +84,9 @@ ApplicationWindow
     property alias radioSource: radioPlayer.source;
 
     RadioPlayer {
-        id: radioPlayer        
+        id: radioPlayer
+        source: currentChannel===null ? '' : currentChannel.getStreamUrl(streamQuality);
+        onSourceChanged: console.debug("RPSrc: "+source);
     }
 
     ChannelsModel {
