@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
-    property string versionStr: qsTr("1.0.0");
+    property string versionStr: qsTr("1.0.1");
 
     property string helpText: qsTr("Unofficial YLE Radio application for Sailfish OS. Listen to the radio streams, see what is playing.")+
                               qsTr("Note: This is a third-party program and is not connected to YLE in any way.")+
