@@ -121,11 +121,10 @@
 	<progInfo>vega/aboland</progInfo>
   </channel>
 
-  <!--
   <channel>
         <name>YLE Radio Vega (Österbotten)</name>
         <streams>
-        <stream quality="low"></stream>
+        <stream quality="low">http://stream2.yle.mobi:8000/vega_osterbotten.mp3</stream>
         <stream quality="medium">http://stream2.yle.mobi:8000/a_vegaosterbotten128.mp3</stream>
         <stream quality="high">http://stream2.yle.mobi:8000/a_vegaosterbotten256.mp3</stream>
         </streams>
@@ -134,9 +133,9 @@
   </channel>
 
   <channel>
-        <name>YLE Radio Vega (Öst Nyland)</name>
+        <name>YLE Radio Vega (Östnyland)</name>
         <streams>
-        <stream quality="low"></stream>
+        <stream quality="low">http://stream2.yle.mobi:8000/vega_ostnyland.mp3</stream>
         <stream quality="medium">http://stream2.yle.mobi:8000/a_vegaost128.mp3</stream>
         <stream quality="high">http://stream2.yle.mobi:8000/a_vegaost256.mp3</stream>
         </streams>
@@ -144,8 +143,27 @@
         <progInfo>vega/ostnyland</progInfo>
   </channel>
 
+  <channel>
+        <name>YLE Radio Vega (Västnyland)</name>
+        <streams>
+        <stream quality="low">http://stream2.yle.mobi:8000/vega_vastnyland.mp3</stream>
+        <stream quality="medium">http://stream2.yle.mobi:8000/vegavastnyland128.mp3</stream>
+        <stream quality="high">http://stream2.yle.mobi:8000/vegavastnyland256.mp3</stream>
+        </streams>
+        <news>http://svenska.yle.fi/rss/radio-vega</news>
+        <progInfo>vega/vastnyland</progInfo>
+  </channel>
 
-  -->
+  <channel>
+        <name>YLE Radio Vega (Huvudstadsregionen)</name>
+        <streams>
+        <stream quality="low">http://stream2.yle.mobi:8000/vega_huvudstad.mp3</stream>
+        <stream quality="medium">http://stream2.yle.mobi:8000/vegahuvudstad128.mp3</stream>
+        <stream quality="high">http://stream2.yle.mobi:8000/vegahuvudstad256.mp3</stream>
+        </streams>
+        <news>http://svenska.yle.fi/rss/radio-vega</news>
+        <progInfo>vega/huvudstad</progInfo>
+  </channel>
 
   <channel>
         <name>YLE Suomi (Turku)</name>
@@ -156,7 +174,51 @@
 	</streams>
         <songInfo></songInfo>
 	<progInfo></progInfo>
-  </channel>  
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Tampere)</name>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_tampere.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_tampere128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_tampere256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+  </channel>
   
+  <channel>
+        <name>YLE Suomi (Satakunta)</name>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_satakunta.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_satakunta128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_satakunta256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Oulu)</name>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_ouluradio.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_ouluradio128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_ouluradio256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Lappi)</name>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_lapinradio.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_lapinradio128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_lapinradio256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+  </channel>
+
  </channels>
 </radio>
