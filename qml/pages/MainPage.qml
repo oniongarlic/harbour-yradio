@@ -24,11 +24,13 @@ Page {
                 text: "Channels"
                 onClicked: pageStack.push(channelsPage);
             }
+            /*
             MenuItem {
                 text: "Programs"
                 onClicked: pageStack.push(programPage);
                 enabled: player.currentChannel===null ? false : true;
             }
+            */
             busy: (player.status==Audio.Loading || player.status==Audio.Buffering) ? true : false;
         }
         contentHeight: column.height
@@ -37,7 +39,7 @@ Page {
             id: column
 
             width: page.width
-            spacing: Theme.paddingLarge
+            spacing: Theme.paddingMedium
             PageHeader {
                 title: "Y-Radio"
             }
@@ -114,10 +116,13 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter;
                 value: player.bufferProgress;
                 width: parent.width/1.5
-                visible: player.status==Audio.Buffering || player.status==Audio.Loading;
+                visible: true;
+                opacity: (player.status==Audio.Buffering || player.status==Audio.Loading) ? 1.0 : 0.0;
                 minimumValue: 0;
                 maximumValue: 1;
+                Behavior on opacity { NumberAnimation { duration: 500; } }
             }
+
         }
     }
 }
