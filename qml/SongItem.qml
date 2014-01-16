@@ -14,7 +14,8 @@ Column {
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
         width: parent.width
-        font.pixelSize: Theme.fontSizeLarge
+        color: Theme.highlightColor
+        font.pixelSize: Theme.fontSizeMedium
     }
     Label {
         id: song
@@ -22,6 +23,6 @@ Column {
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.WordWrap
         width: parent.width
-        font.pixelSize: Theme.fontSizeMedium
+        font.pixelSize: Theme.fontSizeSmall
     }
 }
