@@ -24,6 +24,7 @@
 
   <channel>
         <name>YLE Radio 1</name>
+        <category></category>
         <streams>
         <stream quality="low">http://stream2.yle.mobi:8000/radio1.mp3</stream>
         <stream quality="medium">http://stream2.yle.mobi:8000/liveradio1128.mp3</stream>
@@ -35,6 +36,7 @@
 
   <channel>
 	<name>YLE X3M</name>
+        <category></category>
 	<streams>
 	<stream quality="low">http://stream2.yle.mobi:8000/x3m.mp3</stream>
 	<stream quality="medium">http://stream2.yle.mobi:8000/livex3m128.mp3</stream>
@@ -54,6 +56,7 @@
 
   <channel>
 	<name>YLEX</name>
+        <category></category>
 	<streams>
 	<stream quality="low">http://stream2.yle.mobi:8000/ylex.mp3</stream>
 	<stream quality="medium">http://stream2.yle.mobi:8000/liveylex128.mp3</stream>
@@ -82,6 +85,7 @@
 
   <channel>
         <name>YLE Puhe</name>
+        <category></category>
         <streams>
          <stream quality="low">http://stream2.yle.mobi:8000/ylepuhe.mp3</stream>
          <stream quality="medium">http://stream2.yle.mobi:8000/liveradiopuhe128.mp3</stream>
@@ -97,6 +101,7 @@
 
   <channel>
         <name>YLE Sámi Radio</name>
+        <category></category>
         <streams>
          <stream quality="low">http://stream2.yle.mobi:8000/samiradio.mp3</stream>
          <stream quality="medium">http://stream2.yle.mobi:8000/samiradio128.mp3</stream>
@@ -112,6 +117,7 @@
 
   <channel>
 	<name>YLE Radio Vega (Åboland)</name>
+        <category>Radio Vega</category>
 	<streams>
 	<stream quality="low">http://stream2.yle.mobi:8000/vega_aboland.mp3</stream>
 	<stream quality="medium">http://stream2.yle.mobi:8000/vegaaboland128.mp3</stream>
@@ -123,6 +129,7 @@
 
   <channel>
         <name>YLE Radio Vega (Österbotten)</name>
+        <category>Radio Vega</category>
         <streams>
         <stream quality="low">http://stream2.yle.mobi:8000/vega_osterbotten.mp3</stream>
         <stream quality="medium">http://stream2.yle.mobi:8000/a_vegaosterbotten128.mp3</stream>
@@ -134,6 +141,7 @@
 
   <channel>
         <name>YLE Radio Vega (Östnyland)</name>
+        <category>Radio Vega</category>
         <streams>
         <stream quality="low">http://stream2.yle.mobi:8000/vega_ostnyland.mp3</stream>
         <stream quality="medium">http://stream2.yle.mobi:8000/a_vegaost128.mp3</stream>
@@ -145,6 +153,7 @@
 
   <channel>
         <name>YLE Radio Vega (Västnyland)</name>
+        <category>Radio Vega</category>
         <streams>
         <stream quality="low">http://stream2.yle.mobi:8000/vega_vastnyland.mp3</stream>
         <stream quality="medium">http://stream2.yle.mobi:8000/vegavastnyland128.mp3</stream>
@@ -156,6 +165,7 @@
 
   <channel>
         <name>YLE Radio Vega (Huvudstadsregionen)</name>
+        <category>Radio Vega</category>
         <streams>
         <stream quality="low">http://stream2.yle.mobi:8000/vega_huvudstad.mp3</stream>
         <stream quality="medium">http://stream2.yle.mobi:8000/vegahuvudstad128.mp3</stream>
@@ -166,7 +176,27 @@
   </channel>
 
   <channel>
+        <name>YLE Suomi (Ylen aikainen)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/yleaikainen.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/yleaikainen128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/yleaikainen256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>10/6668480</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
         <name>YLE Suomi (Turku)</name>
+        <category>Radio Suomi</category>
 	<streams>
 	 <stream quality="low">http://stream2.yle.mobi:8000/a_turunradio.mp3</stream>
 	 <stream quality="medium">http://stream2.yle.mobi:8000/a_turunradio128.mp3</stream>
@@ -174,10 +204,16 @@
 	</streams>
         <songInfo></songInfo>
 	<progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
   </channel>
 
   <channel>
         <name>YLE Suomi (Tampere)</name>
+        <category>Radio Suomi</category>
         <streams>
          <stream quality="low">http://stream2.yle.mobi:8000/a_tampere.mp3</stream>
          <stream quality="medium">http://stream2.yle.mobi:8000/a_tampere128.mp3</stream>
@@ -185,10 +221,16 @@
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
   </channel>
   
   <channel>
         <name>YLE Suomi (Satakunta)</name>
+        <category>Radio Suomi</category>
         <streams>
          <stream quality="low">http://stream2.yle.mobi:8000/a_satakunta.mp3</stream>
          <stream quality="medium">http://stream2.yle.mobi:8000/a_satakunta128.mp3</stream>
@@ -196,10 +238,16 @@
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
   </channel>
 
   <channel>
         <name>YLE Suomi (Oulu)</name>
+        <category>Radio Suomi</category>
         <streams>
          <stream quality="low">http://stream2.yle.mobi:8000/a_ouluradio.mp3</stream>
          <stream quality="medium">http://stream2.yle.mobi:8000/a_ouluradio128.mp3</stream>
@@ -207,10 +255,263 @@
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Etelä-Karjalan Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_etelakarjala.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_etelakarjala128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_etelakarjala256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>50/6673350</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Etelä-Savon Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_etelasavo.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_etelasavo128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_etelasavo256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>61/6673349</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Kainuun Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_kainuu.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_kainuu128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_kainuu256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>81/6673358</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Kymeenlaakson Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_kymenlaakso.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_kymenlaakso128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_kymenlaakso256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>51/6673348</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Lahden Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_lahdenradio.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_lahdenradio128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_lahdenradio256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>41/6673341</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Pohjanmaan Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_pohjanmaa.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_pohjanmaa128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_pohjanmaa256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>70/6668506</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Pohjois-Karjalan Radio)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_pohjkarjala.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_pohjkarjala128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_pohjkarjala256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>62/6673353</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Häme)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_radiohame.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_radiohame128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_radiohame256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>42/6673342</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Itä-Uusimaa)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_itauusimaa.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_itauusimaa128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_itauusimaa256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>12/6673356</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Keski-Pohjanmaa)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_keskipohjanmaa.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_keskipohjanmaa128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_keskipohjanmaa256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>71/6673352</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Keski-Suomi)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_keskisuomi.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_keskisuomi128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_keskisuomi256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>30/6673361</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Perämeri)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_perameri.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_perameri128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_perameri256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>91/6673354</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
+  </channel>
+
+  <channel>
+        <name>YLE Suomi (Radio Savo)</name>
+        <category>Radio Suomi</category>
+        <streams>
+         <stream quality="low">http://stream2.yle.mobi:8000/a_radiosavo.mp3</stream>
+         <stream quality="medium">http://stream2.yle.mobi:8000/a_radiosavo128.mp3</stream>
+         <stream quality="high">http://stream2.yle.mobi:8000/a_radiosavo256.mp3</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <shoutBox>RS68suom</shoutBox>
+        <onAir>60/6673351</onAir>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
   </channel>
 
   <channel>
         <name>YLE Suomi (Lappi)</name>
+        <category>Radio Suomi</category>
         <streams>
          <stream quality="low">http://stream2.yle.mobi:8000/a_lapinradio.mp3</stream>
          <stream quality="medium">http://stream2.yle.mobi:8000/a_lapinradio128.mp3</stream>
@@ -218,6 +519,11 @@
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radiosuomi/</some>
+         <some type="twitter">https://twitter.com/radiosuomi</some>
+         <some type="facebook">https://m.facebook.com/radiosuomi</some>
+        </somes>
   </channel>
 
  </channels>
