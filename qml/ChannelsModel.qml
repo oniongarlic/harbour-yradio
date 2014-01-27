@@ -6,6 +6,7 @@ XmlListModel {
     source: "yle.xml"
     query: "/radio/channels/channel"    
     XmlRole { name: "name"; query: "name/string()"; isKey: true; }
+    XmlRole { name: "category"; query: "category/string()"; }
     XmlRole { name: "url"; query: "url/string()" }
     XmlRole { name: "url_program"; query: "url/string()" }
     XmlRole { name: "url_songs"; query: "data/high/string()" }
