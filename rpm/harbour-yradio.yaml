@@ -1,9 +1,9 @@
 Name: harbour-yradio
 Summary: Y-Radio
-Version: 1.0.1
+Version: 1.0.2
 Release: 1
 Group: Qt/Qt
-URL: http://example.org/
+URL: http://www.tal.org/
 License: GPLv2
 Sources:
 - '%{name}-%{version}.tar.bz2'

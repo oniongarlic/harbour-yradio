@@ -13,23 +13,24 @@ Name:       harbour-yradio
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Y-Radio
-Version:    0.1
+Version:    1.0.2
 Release:    1
 Group:      Qt/Qt
-License:    LICENSE
-URL:        http://example.org/
+License:    GPLv2
+URL:        http://www.tal.org/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-yradio.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
-BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10
-BuildRequires:  pkgconfig(Qt5Core)
-BuildRequires:  pkgconfig(Qt5Qml)
+Requires:   qt5-qtdeclarative-import-xmllistmodel
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10
+BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  desktop-file-utils
 
 %description
-Short description of my SailfishOS Application
-
+Unofficial YLE Radio application
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -63,13 +64,13 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
-/usr/share/icons/hicolor/86x86/apps
-/usr/share/applications
-/usr/share/harbour-yradio
-/usr/bin
-%{_datadir}/icons/hicolor/86x86/apps/%{name}.png
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/%{name}/qml
 %{_bindir}
+%{_datadir}/%{name}/qml
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/icons/hicolor/86x86/apps/%{name}.png
+/usr/bin
+/usr/share/harbour-yradio
+/usr/share/applications
+/usr/share/icons/hicolor/86x86/apps
 # >> files
 # << files
