@@ -4,30 +4,42 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
-    SilicaGridView {
+    SilicaListView {
         id: channelList
         anchors.fill: parent;
-        cellWidth: parent.width/2
-        cellHeight: cellWidth/2
+        //cellWidth: parent.width/2
+        //cellHeight: cellWidth/2
+
+        property ContextMenu itemMenu;
+
         clip: true;
         model: channelsModel
         header: PageHeader {
-            title: "Channels"
+            title: qsTr("Channels")
         }
-        delegate: Item {
-            id: channelItem
-            width: channelList.cellWidth
-            height: channelList.cellHeight
+        section.property: "category";
+        section.criteria: ViewSection.FullString
+        section.delegate: SectionHeader {
+            text: section
+        }
+        delegate: Component {
+            id: channelItemComponent
+            //width: channelList.cellWidth
+            //height: channelList.cellHeight
             BackgroundItem {
-                width: channelList.cellWidth
-                height: channelList.cellHeight
+                id: channelItem
+                //width: channelList.cellWidth
+                //height: channelList.cellHeight
                 onClicked: {
                     channelList.currentIndex=index;
                     root.setChannel(channelsModel.get(index), true);
                     pageStack.pop();
                 }
                 onPressAndHold: {
-                    // XXX: Add context menu
+                    return;
+                    channelList.currentIndex=index;
+                    channelList.itemMenu = contextMenuComponent.createObject(channelList);
+                    channelList.itemMenu.show(channelItem);
                 }
                 Label {
                     // XXX: For now, until we load more channel data
@@ -43,6 +55,20 @@ Page {
         }
         VerticalScrollDecorator { flickable: channelList }
     }
+
+    Component {
+        id: contextMenuComponent
+        ContextMenu {
+            id: contextMenu
+            MenuItem {
+                text: "Add to Favorites"
+                onClicked: {
+                    console.debug("CurrentIndex is: "+channelList.currentIndex);
+                }
+            }
+        }
+    }
+
 }
 
 
