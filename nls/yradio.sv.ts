@@ -28,16 +28,12 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <source>1.0.1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Unofficial YLE Radio application for Sailfish OS. Listen to the radio streams, see what is playing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inofficiell YLE Radio app. Lysna på radio streamen och se vad som spelas.</translation>
     </message>
     <message>
         <source>Note: This is a third-party program and is not connected to YLE in any way.</source>
-        <translation type="unfinished">OBS! Programmet är gjort av en privat person och har ingenting med YLE att göra.</translation>
+        <translation>OBS! Programmet är gjort av en privat person och har ingenting med YLE att göra.</translation>
     </message>
     <message>
         <source>Artist images provided by Nokia MixRadio.</source>
@@ -45,11 +41,18 @@
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">Licens</translation>
+        <translation>Licens</translation>
     </message>
     <message>
         <source>Flattr it!</source>
         <translation type="unfinished">Flattr</translation>
+    </message>
+</context>
+<context>
+    <name>ChannelsPage</name>
+    <message>
+        <source>Channels</source>
+        <translation>Kanaler</translation>
     </message>
 </context>
 <context>
@@ -101,6 +104,13 @@
     </message>
 </context>
 <context>
+    <name>CoverPage</name>
+    <message>
+        <source>No channel selected</source>
+        <translation>Ingen kanal vald</translation>
+    </message>
+</context>
+<context>
     <name>Equalizer</name>
     <message>
         <source>Equalizer</source>
@@ -136,6 +146,22 @@
     <message>
         <source>Generic error</source>
         <translation type="obsolete">Ett fel inträffade</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>Om programmet</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Inställningar</translation>
+    </message>
+    <message>
+        <source>Channels</source>
+        <translation>Kanaler</translation>
+    </message>
+    <message>
+        <source>Select a channel to listen to</source>
+        <translation>Välj kanal</translation>
     </message>
 </context>
 <context>
@@ -201,31 +227,31 @@
     <name>SettingsPage</name>
     <message>
         <source>Stream quality</source>
-        <translation type="unfinished">Ljudkvalite</translation>
+        <translation>Ljudkvalite</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished">Låg</translation>
+        <translation>Låg</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">Medium</translation>
+        <translation>Medium</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished">Hög</translation>
+        <translation>Hög</translation>
     </message>
     <message>
         <source>High quality uses more bandwidth! Not recommended if you don&apos;t have an unlimited 4G/3G data plan or use WiFi.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hög kvalite använder mera data. Obegränsad 3G eller WiFi rekomenderas.</translation>
     </message>
     <message>
         <source>Restart playback to use new quality setting.</source>
-        <translation type="unfinished">Starta om uppspelning för att använda nya kvalitetsinställningar.</translation>
+        <translation>Starta om uppspelning för att använda nya kvalitetsinställningar.</translation>
     </message>
     <message>
         <source>Load artist images</source>
-        <translation type="unfinished">Ladda artistbild</translation>
+        <translation>Ladda artistbild</translation>
     </message>
     <message>
         <source>Enabled downloading of a random image of the currently playing artist. Data usage increases.</source>
@@ -234,6 +260,10 @@
     <message>
         <source>By enabling artist image loading you agree the the Nokia MixRadio &lt;a href=&apos;http://www.nokia.com/global/privacy/privacy/service-terms/nokia-service-terms/&apos;&gt;Nokia Service Terms and Privacy Policy&lt;/a&gt;</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Inställningar</translation>
     </message>
 </context>
 <context>

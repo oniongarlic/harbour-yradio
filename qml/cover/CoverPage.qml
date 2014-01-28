@@ -25,7 +25,7 @@ CoverBackground {
     }
 
     CoverPlaceholder {
-        text: player.currentChannel===null ? "No channel selected" : player.currentChannel.name;
+        text: player.currentChannel===null ? qsTr("No channel selected") : player.currentChannel.name;
         // icon: artistImage;
     }
 

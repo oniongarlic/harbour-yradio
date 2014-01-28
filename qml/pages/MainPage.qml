@@ -13,15 +13,15 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: "About"
+                text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
             MenuItem {
-                text: "Settings"
+                text: qsTr("Settings")
                 onClicked: pageStack.push(settingsPage);
             }
             MenuItem {
-                text: "Channels"
+                text: qsTr("Channels")
                 onClicked: pageStack.push(channelsPage);
             }
             /*
@@ -53,7 +53,7 @@ Page {
                     id: l
                     anchors.horizontalCenter: parent.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
-                    text: "Select a channel to listen to"
+                    text: qsTr("Select a channel to listen to")
                     font.pixelSize: Theme.fontSizeExtraLarge
                     wrapMode: Text.WordWrap
                     width: parent.width/2

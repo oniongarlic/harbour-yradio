@@ -18,7 +18,7 @@ Page {
             spacing: Theme.paddingLarge
             anchors.margins: Theme.paddingLarge
             PageHeader {
-                title: "Settings"
+                title: qsTr("Settings")
             }
 
             ComboBox {

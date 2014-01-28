@@ -5,10 +5,6 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <source>1.0.1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Unofficial YLE Radio application for Sailfish OS. Listen to the radio streams, see what is playing.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26,6 +22,39 @@
     </message>
     <message>
         <source>Flattr it!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChannelsPage</name>
+    <message>
+        <source>Channels</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CoverPage</name>
+    <message>
+        <source>No channel selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainPage</name>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Channels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a channel to listen to</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -65,6 +94,10 @@
     </message>
     <message>
         <source>By enabling artist image loading you agree the the Nokia MixRadio &lt;a href=&apos;http://www.nokia.com/global/privacy/privacy/service-terms/nokia-service-terms/&apos;&gt;Nokia Service Terms and Privacy Policy&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

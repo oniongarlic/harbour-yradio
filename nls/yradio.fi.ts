@@ -28,28 +28,31 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <source>1.0.1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Unofficial YLE Radio application for Sailfish OS. Listen to the radio streams, see what is playing.</source>
-        <translation type="unfinished"></translation>
+        <translation>Epävirallinen YLE Radio ohjelma. Kuuntele radiosyötettä, näe mikä kappale soi.</translation>
     </message>
     <message>
         <source>Note: This is a third-party program and is not connected to YLE in any way.</source>
-        <translation type="unfinished">Huom: Tällä ohjelmalla ei ole mitään tekemistä YLE:n kanssa.</translation>
+        <translation>Huom: Tällä ohjelmalla ei ole mitään tekemistä YLE:n kanssa.</translation>
     </message>
     <message>
         <source>Artist images provided by Nokia MixRadio.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esittäjäkuvat tarjoaa Nokia MixRadio.</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">Lisenssi</translation>
+        <translation>Lisenssi</translation>
     </message>
     <message>
         <source>Flattr it!</source>
-        <translation type="unfinished">Flattr</translation>
+        <translation>Flattr</translation>
+    </message>
+</context>
+<context>
+    <name>ChannelsPage</name>
+    <message>
+        <source>Channels</source>
+        <translation>Kanavat</translation>
     </message>
 </context>
 <context>
@@ -77,6 +80,13 @@
     <message>
         <source>Send SMS (16261)</source>
         <translation type="obsolete">Lähetä SMS (16261)</translation>
+    </message>
+</context>
+<context>
+    <name>CoverPage</name>
+    <message>
+        <source>No channel selected</source>
+        <translation>Kanavaa ei ole valittu</translation>
     </message>
 </context>
 <context>
@@ -115,6 +125,22 @@
     <message>
         <source>Generic error</source>
         <translation type="obsolete">Yleinen virhe</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>Ohjelmasta</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Asetukset</translation>
+    </message>
+    <message>
+        <source>Channels</source>
+        <translation>Kanavat</translation>
+    </message>
+    <message>
+        <source>Select a channel to listen to</source>
+        <translation>Valitse kanava</translation>
     </message>
 </context>
 <context>
@@ -168,31 +194,31 @@
     <name>SettingsPage</name>
     <message>
         <source>Stream quality</source>
-        <translation type="unfinished">Laatu</translation>
+        <translation>Laatu</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished">Matala</translation>
+        <translation>Matala</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">Keski</translation>
+        <translation>Keski</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished">Korkea</translation>
+        <translation>Korkea</translation>
     </message>
     <message>
         <source>High quality uses more bandwidth! Not recommended if you don&apos;t have an unlimited 4G/3G data plan or use WiFi.</source>
-        <translation type="unfinished"></translation>
+        <translation>Korkea laatu tarvitsee nopean yhteyden. Suositellaan vain rajoittamattomalla 3G tai Wifi yhteydellä.</translation>
     </message>
     <message>
         <source>Restart playback to use new quality setting.</source>
-        <translation type="unfinished">Käynnistä soitto uudestaan käyttääksesi uutta laatuasetusta.</translation>
+        <translation>Käynnistä soitto uudestaan käyttääksesi uutta laatuasetusta.</translation>
     </message>
     <message>
         <source>Load artist images</source>
-        <translation type="unfinished">Lataa artistikuva</translation>
+        <translation>Lataa artistikuva</translation>
     </message>
     <message>
         <source>Enabled downloading of a random image of the currently playing artist. Data usage increases.</source>
@@ -200,7 +226,11 @@
     </message>
     <message>
         <source>By enabling artist image loading you agree the the Nokia MixRadio &lt;a href=&apos;http://www.nokia.com/global/privacy/privacy/service-terms/nokia-service-terms/&apos;&gt;Nokia Service Terms and Privacy Policy&lt;/a&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Käyttämällä esittäjäkuvia hyväksyt Nokia MixRadio &lt;a href=&apos;http://www.nokia.com/global/privacy/privacy/service-terms/nokia-service-terms/&apos;&gt;käyttöehdot&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Asetukset</translation>
     </message>
 </context>
 <context>
