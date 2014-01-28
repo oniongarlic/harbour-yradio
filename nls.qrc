@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>nls/yradio.en.qm</file>
+        <file>nls/yradio.fi.qm</file>
+        <file>nls/yradio.sv.qm</file>
+    </qresource>
+</RCC>
