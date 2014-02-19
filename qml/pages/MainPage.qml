@@ -56,7 +56,7 @@ Page {
 
             BackgroundItem {
                 id: noChannelSelected
-                visible: player.currentChannel===null;
+                visible: root.currentChannel===null;
                 width: parent.width
                 height: l.height
                 Label {
@@ -72,25 +72,27 @@ Page {
             }
 
             BackgroundItem {
-                visible: player.currentChannel!==null;
+                visible: root.currentChannel!==null;
                 width: parent.width
                 height: cl.height
                 Label {
                     id: cl
                     anchors.horizontalCenter: parent.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
-                    text: player.currentChannel===null ? '' : player.currentChannel.name;
+                    text: root.currentChannel===null ? '' : root.currentChannel.name;
                     font.pixelSize: Theme.fontSizeLarge
                     wrapMode: Text.WordWrap
                     width: parent.width/2
                 }
-                onClicked: pageStack.push(channelsPage);
+                onClicked: {
+                    pageStack.push(channelsPage);
+                }
             }
 
             SongInfo {
                 id: songInfo;
                 visible: infoId!==''
-                infoId: player.currentChannel===null ? '' : player.currentChannel.songInfoId;
+                infoId: root.currentChannel===null ? '' : root.currentChannel.songInfoId;
                 showArtistImage: root.loadArtistImage;
                 onInfoIdChanged: {
                     if (infoId!=='')
