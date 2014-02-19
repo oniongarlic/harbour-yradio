@@ -5,6 +5,8 @@ import ".."
 Page {
     id: page
 
+    property Channel channel: null;
+
     DatePickerDialog {
         id: datePicker
         date: new Date();

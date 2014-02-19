@@ -41,13 +41,10 @@ CoverBackground {
             onTriggered: player.toggle()
         }
 
-        /*
-        XXX: Add action to toggle channel ? or ?
-        CoverAction {
+        CoverAction {            
             iconSource: "image://theme/icon-cover-next-song"
-            onTriggered: player.playNext()
-        }
-        */
+            onTriggered: root.nextChannel()
+        }        
     }
 }
 

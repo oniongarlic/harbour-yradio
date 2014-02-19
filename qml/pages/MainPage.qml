@@ -7,6 +7,16 @@ Page {
     id: page
 
     property RadioPlayer player: null;
+    property ChannelsPage channels: null;
+
+    // Create an attached page of the channels for quick access, this might be a Favorites in the future, lets see how it goes...
+    // we do it here as the pageStack is still busy on the onCompleted signal for some odd reason.
+    onStatusChanged: {
+        if (status===PageStatus.Active && pageStack.depth===1 && channels===null) {
+            channels=channelsPage.createObject(root, {currentChannelIndex: root.channelId });
+            pageStack.pushAttached(channels);
+        }
+    }    
 
     SilicaFlickable {
         anchors.fill: parent
@@ -22,13 +32,13 @@ Page {
             }
             MenuItem {
                 text: qsTr("Channels")
-                onClicked: pageStack.push(channelsPage);
+                onClicked: pageStack.push(channels);
             }
             /*
             MenuItem {
                 text: "Programs"
                 onClicked: pageStack.push(programPage);
-                enabled: player.currentChannel===null ? false : true;
+                enabled: root.currentChannel===null ? false : true;
             }
             */
             busy: (player.status==Audio.Loading || player.status==Audio.Buffering) ? true : false;

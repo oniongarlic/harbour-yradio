@@ -1,14 +1,18 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import ".."
 
 Page {
     id: page
 
+    // ListView {}
+
+    property alias currentChannelIndex: channelList.currentIndex;
+    property Channel currentChannel: null;
+
     SilicaListView {
         id: channelList
         anchors.fill: parent;
-        //cellWidth: parent.width/2
-        //cellHeight: cellWidth/2
 
         property ContextMenu itemMenu;
 
@@ -24,22 +28,17 @@ Page {
         }
         delegate: Component {
             id: channelItemComponent
-            //width: channelList.cellWidth
-            //height: channelList.cellHeight
-            BackgroundItem {
+            ListItem {
                 id: channelItem
-                //width: channelList.cellWidth
-                //height: channelList.cellHeight
+                menu: contextMenuComponent
+                showMenuOnPressAndHold: true
                 onClicked: {
                     channelList.currentIndex=index;
-                    root.setChannel(channelsModel.get(index), true);
-                    pageStack.pop();
+                    setChannel(index);
+                    pageStack.navigateBack();
                 }
                 onPressAndHold: {
-                    return;
                     channelList.currentIndex=index;
-                    channelList.itemMenu = contextMenuComponent.createObject(channelList);
-                    channelList.itemMenu.show(channelItem);
                 }
                 Label {
                     // XXX: For now, until we load more channel data
@@ -50,10 +49,30 @@ Page {
                     font.pixelSize: Theme.fontSizeMedium;
                     horizontalAlignment: Text.AlignHCenter
                     text: name;
+                    color: ListView.isCurrentItem ? Theme.highlightColor : Theme.primaryColor
                 }
             }
-        }
+        }        
+
         VerticalScrollDecorator { flickable: channelList }
+    }
+
+    function setChannel(index, autoPlay) {
+        root.setChannel(index, autoPlay);        
+    }
+
+    function showChannel(index) {                
+        pageStack.push(channelPage, { channel: currentChannel } );
+    }
+
+    function showChannelPrograms(index) {
+        pageStack.push(programPage, { channel: currentChannel } );
+    }
+
+    onCurrentChannelIndexChanged: {
+        if (currentChannel!==null)
+            currentChannel.destroy();
+        currentChannel=root.getChannelObjectFromId(currentChannelIndex);
     }
 
     Component {
@@ -61,14 +80,28 @@ Page {
         ContextMenu {
             id: contextMenu
             MenuItem {
-                text: "Add to Favorites"
+                text: qsTr("Play")                
+                onClicked: {                    
+                    setChannel(channelList.currentIndex, true);
+                    pageStack.navigateBack();
+                }
+            }
+            MenuItem {
+                text: qsTr("Information")
                 onClicked: {
-                    console.debug("CurrentIndex is: "+channelList.currentIndex);
+                    showChannel(channelList.currentIndex);
+                }
+            }
+
+            MenuItem {
+                text: qsTr("Programs")
+                visible: currentChannel.programInfoId==='' ? false : true;
+                onClicked: {                    
+                    showChannelPrograms(channelList.currentIndex);
                 }
             }
         }
     }
-
 }
 
 
