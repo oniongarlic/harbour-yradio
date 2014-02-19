@@ -15,5 +15,13 @@ XmlListModel {
     XmlRole { name: "stream_medium"; query: "streams/stream[@quality='medium']/string()" }
     XmlRole { name: "stream_low"; query: "streams/stream[@quality='low']/string()" }
     XmlRole { name: "song_info_id"; query: "songInfo/string()" }
+    XmlRole { name: "program_info_id"; query: "progInfo/string()" }
 
+    function isValidId(id) {
+        if (id<0)
+            return false;
+        if (id>model.count())
+            return false;
+        return true;
+    }
 }
