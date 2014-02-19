@@ -20,7 +20,7 @@ XmlListModel {
     function isValidId(id) {
         if (id<0)
             return false;
-        if (id>model.count())
+        if (id>model.count)
             return false;
         return true;
     }
