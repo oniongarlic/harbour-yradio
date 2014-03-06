@@ -8,16 +8,13 @@ BackgroundItem {
     property int updateInterval: 180;
     property alias enabled: timer.running;
 
-    property string curSong: ""
-    property string curSongArtist: ""
+    property Song curSong;
+    property Song nextSong;
+    property Song nextNextSong;
 
-    property string nextSong: ""
-    property string nextSongArtist: ""
+    property Program _curProgram;
 
-    property string nextNextSong: ""
-    property string nextNextSongArtist: ""
-
-    property bool hasSong: curSong!=='';
+    property bool hasSong: curSong!==null;
     property bool fetching: songInfoCurrent.status===XmlListModel.Loading || songInfoNext.status===XmlListModel.Loading;
     property bool showArtistImage: true;
 
@@ -40,12 +37,9 @@ BackgroundItem {
     }
 
     function reset() {
-        curSong=''
-        curSongArtist=''
-        nextSong=''
-        nextSongArtist=''
-        nextNextSong=''
-        nextNextSongArtist=''
+        curSong=null;
+        nextSong=null;
+        nextNextSong=null;
         curProgram.text='';
     }
 
@@ -79,7 +73,7 @@ BackgroundItem {
         Label {
             id: curProgram
             anchors.horizontalCenter: parent.horizontalCenter
-            text: ""
+            text: ''
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
             font.pixelSize: Theme.fontSizeLarge
@@ -90,51 +84,19 @@ BackgroundItem {
             text: qsTr("Playing now:");
             horizontalAlignment: Text.AlignHCenter            
             width: parent.width
-            visible: curSong!=='';
+            visible: curSongItem.hasSong;
             font.pixelSize: Theme.fontSizeLarge
         }
 
         SongItem {
-            artist: curSongArtist;
+            id: curSongItem
             song: curSong;
-            visible: curSong!=='';
+            visible: hasSong;
         }
 
-        Image {
-            id: artistImage
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 320;
-            height: 320;
-            fillMode: Image.PreserveAspectFit
-            cache: true
-            asynchronous: true
-            visible: curSongArtist!=='' && status!==Image.Error;
-            source: getArtistImageUrl_NokiaMixRadio(curSongArtist);
-            onStatusChanged: {
-
-            }
-            opacity: visible ? 1.0 : 0.0;
-            Behavior on opacity { NumberAnimation { duration: 300; easing.type: Easing.InOutCubic} }
-            Behavior on height { NumberAnimation { duration: 300; easing.type: Easing.InOutCubic} }
-            BusyIndicator {
-                anchors.centerIn: parent
-                visible: running;
-                running: artistImage.status==Image.Loading;
-                // size: BusyIndicator.s
-            }
-
-            function getArtistImageUrl_NokiaMixRadio(artist) {
-                if (artist==='')
-                    return '';
-
-                if (main.loadImages==false)
-                    return'';
-
-                var url="http://api.mixrad.io/1.x/fi/creators/images/320x320/random/?domain=music&client_id="+NMIX.NOKIA_API_ID;
-                url=url.concat("&name=", encodeURIComponent(artist));
-                // console.debug("ImageURL: "+url)
-                return url;
-            }
+        ArtistImage {
+            id: artistImage;
+            song: curSong;
         }
 
         Label {
@@ -142,20 +104,20 @@ BackgroundItem {
             text: qsTr("Playing next:");
             horizontalAlignment: Text.AlignHCenter            
             width: parent.width
-            visible: nextSong!=='';
+            visible: nextSongItem.hasSong || nextNextSongItem.hasSong;
             font.pixelSize: Theme.fontSizeMedium
         }
 
         SongItem {
-            artist: nextSongArtist;
+            id: nextSongItem
             song: nextSong;
-            visible: nextSong!=='';
+            visible: hasSong;
         }
 
         SongItem {
-            artist: nextNextSongArtist;
+            id: nextNextSongItem
             song: nextNextSong;
-            visible: nextNextSong!=='';
+            visible: hasSong;
         }
     }
 
@@ -190,43 +152,24 @@ BackgroundItem {
         id: songInfoCurrent
         infoIndex: 0;
         infoId: songinfo.infoId
-        onEmpty: curSong="";
-        onUpdated: {
-            curSong=songData.title;
-            if (songData.performer)
-                curSongArtist=songData.performer;
-            else if (songData.vocalist)
-                curSongArtist=songData.vocalist;
-            curProgram.text=songData.program;
-        }
+        onEmpty: curSong=null;
+        onUpdated: curSong=getSong();
     }
 
     SongInfoModel {
         id: songInfoNext
         infoIndex: 1;
         infoId: songinfo.infoId
-        onEmpty: nextSong="";
-        onUpdated: {
-            nextSong=songData.title;
-            if (songData.performer)
-                nextSongArtist=songData.performer;
-            else if (songData.vocalist)
-                nextSongArtist=songData.vocalist;
-        }
+        onEmpty: nextSong=null;
+        onUpdated: nextSong=getSong();
     }
 
     SongInfoModel {
         id: songInfoNextNext
         infoIndex: 2;
         infoId: songinfo.infoId
-        onEmpty: nextNextSong="";
-        onUpdated: {
-            nextNextSong=songData.title;
-            if (songData.performer)
-                nextNextSongArtist=songData.performer;
-            else if (songData.vocalist)
-                nextNextSongArtist=songData.vocalist;
-        }
+        onEmpty: nextNextSong=null;
+        onUpdated: nextNextSong=getSong();
     }
 
     function updateSongInfo(model)
