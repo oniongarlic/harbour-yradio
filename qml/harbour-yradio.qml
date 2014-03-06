@@ -85,6 +85,13 @@ ApplicationWindow
         }
     }
 
+    Component {
+        id: songComponent
+        Song {
+
+        }
+    }
+
     ChannelsModel {
         id: channelsModel
     }
@@ -165,7 +172,13 @@ ApplicationWindow
                                           surl_hq: cdata.stream_high,
                                           url: cdata.url,
                                           songInfoId: cdata.song_info_id,
-                                          programInfoId: cdata.program_info_id
+                                          programInfoId: cdata.program_info_id,
+                                          social: {
+                                            web: cdata.some_web,
+                                            twitter: cdata.some_twitter,
+                                            facebook: cdata.some_facebook,
+                                          }
+
                                       });
     }
 

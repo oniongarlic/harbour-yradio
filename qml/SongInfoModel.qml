@@ -19,7 +19,19 @@ XmlListModel {
     XmlRole { name: "vocalist"; query: "@VOCALIST/string()" }
     XmlRole { name: "start"; query: "@STARTING_TIME/string()" }
     XmlRole { name: "duration"; query: "PUBLISH-DATA/@DURATION/string()"; }
-    XmlRole { name: "program"; query: "@PLAYOUT_PROGRAMME_NAME/string()"; }
+    XmlRole { name: "program"; query: "@PLAYOUT_PROGRAMME_NAME/string()"; }    
+
+    function getSong() {
+        if (songData===null)
+            return null;
+
+        return songComponent.createObject(songInfoModel, {
+                  name: songData.title,
+                  artist: songData.performer ? songData.performer : songData.vocalist ? songData.vocalist : '',
+                  start: songData.start,
+                  duration: songData.duration
+        });
+    }
 
     // We load the information manually, as the server stupidly sends a 404 + redirection if the information is not available and the
     // model is stuck with the url.
