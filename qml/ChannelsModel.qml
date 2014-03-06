@@ -4,7 +4,8 @@ import QtQuick.XmlListModel 2.0
 XmlListModel {
     id: model
     source: "yle.xml"
-    query: "/radio/channels/channel"    
+    query: "/radio/channels/channel"
+
     XmlRole { name: "name"; query: "name/string()"; isKey: true; }
     XmlRole { name: "category"; query: "category/string()"; }
     XmlRole { name: "url"; query: "somes/some[@type='web']/string()" }
@@ -16,6 +17,14 @@ XmlListModel {
     XmlRole { name: "stream_low"; query: "streams/stream[@quality='low']/string()" }
     XmlRole { name: "song_info_id"; query: "songInfo/string()" }
     XmlRole { name: "program_info_id"; query: "progInfo/string()" }
+
+    // Social media data
+    XmlRole { name: "some_web"; query: "somes/some[@type='web']/string()" }
+    XmlRole { name: "some_facebook"; query: "somes/some[@type='facebook']/string()" }
+    XmlRole { name: "some_twitter"; query: "somes/some[@type='twitter']/string()" }
+    XmlRole { name: "some_youtube"; query: "somes/some[@type='youtube']/string()" }
+    XmlRole { name: "some_instagram"; query: "somes/some[@type='instagram']/string()" }
+    // XmlRole { name: "some_"; query: "somes/some[@type='']/string()" }
 
     function isValidId(id) {
         if (id<0)
