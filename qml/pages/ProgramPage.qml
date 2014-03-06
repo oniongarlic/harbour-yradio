@@ -6,13 +6,51 @@ Page {
     id: page
 
     property Channel channel: null;
+    property alias date: programsModel.date;
 
     DatePickerDialog {
         id: datePicker
-        date: new Date();
+        date: page.date;
         onAccepted: {
             console.debug("*** Date: "+datePicker.dateText)
-            // programModel.load(datePicker.date);
+            programsModel.date=datePicker.date;
+        }
+    }
+
+    Dialog {
+        id: infoDialog
+        canAccept: true;
+        property string title;
+        property string synopsis;
+        property string startTime;
+        property string length;
+        property string url;
+
+        SilicaFlickable {
+            anchors.fill: parent
+
+            Column {
+                id: cs
+                anchors.fill: parent
+                spacing: Theme.paddingLarge
+                anchors.margins: Theme.paddingLarge
+                PageHeader {
+                    title: infoDialog.title
+                }
+                Label {
+                    text: infoDialog.startTime
+                    font.pixelSize: Theme.fontSizeSmall
+                    width: parent.width;
+                }
+                Label {
+                    id: synopsis
+                    text: infoDialog.synopsis
+                    wrapMode: Text.WordWrap
+                    font.pixelSize: Theme.fontSizeSmall
+                    width: parent.width;
+                    // onLinkActivated: Qt.openUrlExternally(link)
+                }
+            }
         }
     }
 
@@ -20,50 +58,62 @@ Page {
         id: programsModel
     }
 
+    Component.onCompleted: {
+        console.debug("Requesting load of data");
+        programsModel.date=new Date();
+    }
+
     SilicaListView {
         id: programList
         anchors.fill: parent;
         clip: true;
-        model: programsModel
+        model: programsModel.getModel();
         header: PageHeader {
-            title: "Program"
+            title: qsTr("Programs")
         }
 
         PullDownMenu {
             MenuItem {
-                text: "Date"
+                text: "Pick a date"
                 onClicked: pageStack.push(datePicker);
+            }
+            MenuItem {
+                text: "Today"
+                onClicked: programsModel.date=new Date();
             }
             // busy: (programModel.loading) ? true : false;
         }
 
-        delegate: Item {
+        delegate: Component {
             id: programItem
-            BackgroundItem {
+            ListItem {
                 onClicked: {
-                    //channelList.currentIndex=index;
+                    programList.currentIndex=index;
                     //root.setChannel(channelsModel.get(index), true);
-                    //pageStack.pop();
+                    infoDialog.open();
                 }
                 onPressAndHold: {
+                    programList.currentIndex=index;
                     // XXX: Add context menu
                 }
-                Label {
-                    // XXX: For now, until we load more channel data
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter;
-                    width: parent.width;
-                    wrapMode: Text.WordWrap
-                    font.pixelSize: Theme.fontSizeMedium;
-                    horizontalAlignment: Text.AlignHCenter
-                    //text: name;
+                Row {
+                    width: parent.width
+                    Label {
+                        id: timeLabel
+                        text: startTime
+                        width: parent.width/4;
+                    }
+
+                    Label {
+                        id: nameLabel                        
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: Theme.fontSizeMedium;
+                        horizontalAlignment: Text.AlignHCenter
+                        text: programName;
+                    }
                 }
             }
         }
         VerticalScrollDecorator { flickable: programList }
     }
 }
-
-
-
-
