@@ -7,15 +7,19 @@
 #include <sailfishapp.h>
 #include "settings.h"
 
+#include "FileDownloader.hpp"
+
 int main(int argc, char *argv[])
 {
-    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
-    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));    
     QTranslator translator;
     Settings *settings;
+    const QString applicationVersion("0.3.0");
+
+    qmlRegisterType<FileDownloader>("harbour.org.tal", 1, 0, "FileDownloader");
 
     app->setApplicationName("harbour-yradio");
-    app->setApplicationVersion("1.0.2");
+    app->setApplicationVersion(applicationVersion);
     app->setOrganizationDomain("org.tal");
     app->setOrganizationName("TalOrg");
 
@@ -30,8 +34,10 @@ int main(int argc, char *argv[])
     }
 
     settings = new Settings();
-    view->rootContext()->setContextProperty("settings", settings);
 
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    view->rootContext()->setContextProperty("settings", settings);
+    view->rootContext()->setContextProperty("appVersion", applicationVersion);
     view->setSource(SailfishApp::pathTo("qml/harbour-yradio.qml"));
     view->showFullScreen();
 
