@@ -32,6 +32,9 @@
         </streams>
         <songInfo>r01</songInfo>
         <progInfo>yleradio1</progInfo>
+        <somes>
+         <some type="web">http://yle.fi/radio/yleradio1/</some>
+        </somes>
   </channel>
 
   <channel>
