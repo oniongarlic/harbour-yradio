@@ -10,9 +10,9 @@ TARGET = harbour-yradio
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-yradio.cpp src/settings.cpp
+SOURCES += src/harbour-yradio.cpp src/settings.cpp src/FileDownloader.cpp src/DateUtils.cpp
 
-HEADERS += src/settings.h
+HEADERS += src/settings.h src/FileDownloader.hpp src/DateUtils.h
 
 # lupdate src/*.{cpp,h} qml/*.{qml,js} -ts nls/*.ts
 
@@ -32,15 +32,16 @@ PRE_TARGETDEPS += compiler_updateqm_make_all
 OTHER_FILES += qml/*.qml \
     qml/cover/*.qml \
     qml/pages/*.qml \
+    qml/models/*.qml \
     qml/yle.xml \
     qml/*.js \
-    rpm/harbour-yradio.spec \
-    rpm/harbour-yradio.yaml \
-    harbour-yradio.desktop \
-    qml/pages/ProgramPage.qml \
-    qml/SongItem.qml \
-    qml/ProgramsModel.qml \
-    qml/pages/ChannelPage.qml
+    qml/models/FavoritesModel.qml \
+    qml/pages/SongsPage.qml \
+    qml/PlayerDbusInterface.qml \
+    qml/Song.qml \
+    qml/Program.qml \
+    qml/ArtistImage.qml
+
 
 RESOURCES += \
     nls.qrc

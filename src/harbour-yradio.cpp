@@ -8,12 +8,14 @@
 #include "settings.h"
 
 #include "FileDownloader.hpp"
+#include "DateUtils.h"
 
 int main(int argc, char *argv[])
 {
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));    
     QTranslator translator;
     Settings *settings;
+    DateUtils *dateutils;
     const QString applicationVersion("0.3.0");
 
     qmlRegisterType<FileDownloader>("harbour.org.tal", 1, 0, "FileDownloader");
@@ -34,9 +36,11 @@ int main(int argc, char *argv[])
     }
 
     settings = new Settings();
+    dateutils = new DateUtils();
 
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("settings", settings);
+    view->rootContext()->setContextProperty("dateutils", dateutils);
     view->rootContext()->setContextProperty("appVersion", applicationVersion);
     view->setSource(SailfishApp::pathTo("qml/harbour-yradio.qml"));
     view->showFullScreen();
