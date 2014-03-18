@@ -12,7 +12,7 @@ CONFIG += sailfishapp
 
 SOURCES += src/harbour-yradio.cpp src/settings.cpp src/FileDownloader.cpp src/DateUtils.cpp
 
-HEADERS += src/settings.h src/FileDownloader.hpp src/DateUtils.h
+HEADERS += src/settings.h src/FileDownloader.h src/DateUtils.h
 
 # lupdate src/*.{cpp,h} qml/*.{qml,js} -ts nls/*.ts
 

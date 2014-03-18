@@ -7,7 +7,7 @@
 #include <sailfishapp.h>
 #include "settings.h"
 
-#include "FileDownloader.hpp"
+#include "FileDownloader.h"
 #include "DateUtils.h"
 
 int main(int argc, char *argv[])

@@ -1,4 +1,4 @@
-#include "FileDownloader.hpp"
+#include "FileDownloader.h"
 
 #include <QDebug>
 #include <QNetworkAccessManager>
