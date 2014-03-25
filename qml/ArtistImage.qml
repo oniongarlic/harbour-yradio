@@ -9,8 +9,7 @@ Image {
     height: 320;
     fillMode: Image.PreserveAspectFit
     cache: true
-    asynchronous: true
-    visible: opacity > 0.0;
+    asynchronous: true    
     source: getArtistImageUrl_NokiaMixRadio(song);
 
     property Song song;
@@ -36,7 +35,7 @@ Image {
         if (song.artist==='')
             return '';
 
-        if (main.loadImages===false)
+        if (root.loadArtistImage===false)
             return'';
 
         var url="http://api.mixrad.io/1.x/fi/creators/images/320x320/random/?domain=music&client_id="+NMIX.NOKIA_API_ID;
