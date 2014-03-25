@@ -96,7 +96,8 @@ BackgroundItem {
 
         ArtistImage {
             id: artistImage;
-            song: curSong;
+            song: showArtistImage ? curSong : null;
+            visible: showArtistImage;
         }
 
         Label {
