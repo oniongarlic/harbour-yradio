@@ -56,6 +56,7 @@ Page {
 
     ProgramsModel {
         id: programsModel
+        programId: root.currentChannel.programInfoId
     }
 
     Component.onCompleted: {
@@ -74,11 +75,11 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: "Pick a date"
+                text: qsTr("Pick a date");
                 onClicked: pageStack.push(datePicker);
             }
-            MenuItem {
-                text: "Today"
+            MenuItem {                
+                text: qsTr("Today");
                 onClicked: programsModel.date=new Date();
             }
             // busy: (programModel.loading) ? true : false;
@@ -87,33 +88,58 @@ Page {
         delegate: Component {
             id: programItem
             ListItem {
+                menu: contextMenuComponent
+                showMenuOnPressAndHold: true
                 onClicked: {
-                    programList.currentIndex=index;
-                    //root.setChannel(channelsModel.get(index), true);
-                    infoDialog.open();
+                    programList.currentIndex=index;                    
+                    // infoDialog.open();
                 }
                 onPressAndHold: {
-                    programList.currentIndex=index;
-                    // XXX: Add context menu
+                    programList.currentIndex=index;                    
                 }
                 Row {
-                    width: parent.width
+                    // width: parent.width
+                    x: Theme.paddingLarge
                     Label {
                         id: timeLabel
-                        text: startTime
-                        width: parent.width/4;
+                        text: du.formatTime(startTime.substring(0,19));
+                        width: parent.width/5;
                     }
 
                     Label {
                         id: nameLabel                        
                         wrapMode: Text.WordWrap
                         font.pixelSize: Theme.fontSizeMedium;
-                        horizontalAlignment: Text.AlignHCenter
+                        horizontalAlignment: Text.AlignLeft
                         text: programName;
+                        width: parent.width-timeLabel.width
                     }
                 }
             }
         }
-        VerticalScrollDecorator { flickable: programList }
+        VerticalScrollDecorator { flickable: programList }        
+    }
+    Component {
+        id: contextMenuComponent
+        ContextMenu {
+            id: contextMenu
+            MenuItem {
+                text: qsTr("Details")
+                onClicked: {
+                    infoDialog.open();
+                }
+            }
+            // XXX If and when we can access the users calendar in some way
+            MenuItem {
+                text: qsTr("Add reminder")
+                visible: false
+                onClicked: {
+                    addReminder("",0);
+                }
+            }
+        }
+    }
+    function addReminder(title, time) {
+
     }
 }

@@ -19,7 +19,11 @@ Page {
     }    
 
     SilicaFlickable {
+        id: mainFlickable
         anchors.fill: parent
+        anchors.bottomMargin: playPanel.expanded ? playPanel.visibleSize : 0;
+
+        VerticalScrollDecorator { flickable: mainFlickable }
 
         PullDownMenu {
             MenuItem {
@@ -33,14 +37,12 @@ Page {
             MenuItem {
                 text: qsTr("Channels")
                 onClicked: pageStack.push(channels);
-            }
-            /*
+            }            
             MenuItem {
-                text: "Programs"
-                onClicked: pageStack.push(programPage);
+                text: qsTr("Programs")
+                onClicked: pageStack.push(programPage, { channel: root.currentChannel } );
                 enabled: root.currentChannel===null ? false : true;
-            }
-            */
+            }            
             busy: (player.status==Audio.Loading || player.status==Audio.Buffering) ? true : false;
         }
         contentHeight: column.height
@@ -100,19 +102,20 @@ Page {
                 }
                 enabled: player.playing && infoId!=='';
                 onClicked: {
-                    panel.show();
+                    playPanel.show();
                 }
             }
         }
     }
     DockedPanel {
-        id: panel
+        id: playPanel
         width: parent.width
-        height: Theme.itemSizeExtraLarge + Theme.paddingLarge
+        height: dpc.height + Theme.paddingLarge
         dock: Dock.Bottom
-        open: true;
+        open: root.currentChannel===null ? false : true;
 
         Column {
+            id: dpc
             width: parent.width
             IconButton {
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -134,7 +137,6 @@ Page {
                 maximumValue: 1;
                 Behavior on opacity { NumberAnimation { duration: 500; } }
             }
-
         }
     }
 }
