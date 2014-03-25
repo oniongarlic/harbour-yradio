@@ -7,6 +7,7 @@ Item {
     property variant date;
     property string programId: ''
     property bool loading: downloader.loading>0.0 && downloader.loading<1.0;
+    property ListModel model: programsModel
 
     function getModel() {
         return programsModel;
@@ -16,6 +17,8 @@ Item {
         var url=getProgramDataUrl(date);
         if (url) {
             downloader.download(url,'');
+        } else {
+            programsModel.clear();
         }
     }
 
@@ -23,12 +26,14 @@ Item {
     {
         if (!d)
             return '';
+        if (programId=='')
+            return '';
 
         // Live URL
-        //return "http://yle.fi/ohjelmat/radio/"+programId+"/"+d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+".json";
+        return "http://yle.fi/ohjelmat/radio/"+programId+"/"+d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+".json";
 
         // Testing URL
-        return "http://api.tal.org/0.0/testing/2013-10-8.json"
+        //return "http://api.tal.org/0.0/testing/2013-10-8.json"
     }
 
     onDateChanged: {
