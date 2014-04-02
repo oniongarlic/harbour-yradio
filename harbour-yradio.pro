@@ -33,14 +33,8 @@ OTHER_FILES += qml/*.qml \
     qml/cover/*.qml \
     qml/pages/*.qml \
     qml/models/*.qml \
-    qml/yle.xml \
     qml/*.js \
-    qml/models/FavoritesModel.qml \
-    qml/pages/SongsPage.qml \
-    qml/PlayerDbusInterface.qml \
-    qml/Song.qml \
-    qml/Program.qml \
-    qml/ArtistImage.qml
+    qml/yle.xml
 
 
 RESOURCES += \
