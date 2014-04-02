@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import ".."
+import "../models"
 
 Page {
     id: page
@@ -17,46 +18,13 @@ Page {
         }
     }
 
-    Dialog {
+    ProgramDialog {
         id: infoDialog
-        canAccept: true;
-        property string title;
-        property string synopsis;
-        property string startTime;
-        property string length;
-        property string url;
-
-        SilicaFlickable {
-            anchors.fill: parent
-
-            Column {
-                id: cs
-                anchors.fill: parent
-                spacing: Theme.paddingLarge
-                anchors.margins: Theme.paddingLarge
-                PageHeader {
-                    title: infoDialog.title
-                }
-                Label {
-                    text: infoDialog.startTime
-                    font.pixelSize: Theme.fontSizeSmall
-                    width: parent.width;
-                }
-                Label {
-                    id: synopsis
-                    text: infoDialog.synopsis
-                    wrapMode: Text.WordWrap
-                    font.pixelSize: Theme.fontSizeSmall
-                    width: parent.width;
-                    // onLinkActivated: Qt.openUrlExternally(link)
-                }
-            }
-        }
     }
 
     ProgramsModel {
         id: programsModel
-        programId: root.currentChannel.programInfoId
+        programId: channel.programInfoId
     }
 
     Component.onCompleted: {
@@ -82,7 +50,7 @@ Page {
                 text: qsTr("Today");
                 onClicked: programsModel.date=new Date();
             }
-            // busy: (programModel.loading) ? true : false;
+            busy: programsModel.loading ? true : false;
         }
 
         delegate: Component {
@@ -98,21 +66,29 @@ Page {
                     programList.currentIndex=index;                    
                 }
                 Row {
-                    // width: parent.width
-                    x: Theme.paddingLarge
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: Theme.paddingLarge
+                    height: Math.max(nameLabel.paintedHeight, timeLabel.paintedHeight);
                     Label {
                         id: timeLabel
                         text: du.formatTime(startTime.substring(0,19));
                         width: parent.width/5;
+                        wrapMode: Text.NoWrap;
+                        font.pixelSize: Theme.fontSizeLarge;
                     }
 
                     Label {
                         id: nameLabel                        
-                        wrapMode: Text.WordWrap
+                        wrapMode: Text.NoWrap;
+                        elide: Text.ElideRight
                         font.pixelSize: Theme.fontSizeMedium;
+                        verticalAlignment: Text.AlignVCenter;
                         horizontalAlignment: Text.AlignLeft
                         text: programName;
+                        textFormat: Text.PlainText;
                         width: parent.width-timeLabel.width
+
                     }
                 }
             }
@@ -123,9 +99,12 @@ Page {
         id: contextMenuComponent
         ContextMenu {
             id: contextMenu
+            enabled: false;
             MenuItem {
-                text: qsTr("Details")
+                text: qsTr("Details");
+                visible: false;
                 onClicked: {
+                    infoDialog.program=programsModel.getProgramObject(programList.currentIndex);
                     infoDialog.open();
                 }
             }
