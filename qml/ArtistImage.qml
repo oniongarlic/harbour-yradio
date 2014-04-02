@@ -3,21 +3,19 @@ import Sailfish.Silica 1.0
 import "mixradio.js" as NMIX
 
 Image {
-    id: artistImage
-    anchors.horizontalCenter: parent.horizontalCenter
+    id: artistImage    
     width: 320;
     height: 320;
     fillMode: Image.PreserveAspectFit
     cache: true
     asynchronous: true    
-    source: getArtistImageUrl_NokiaMixRadio(song);
+    source: enabled ? getArtistImageUrl_NokiaMixRadio(song) : '';
+    visible: enabled && isValid;
 
     property Song song;
     property bool isValid: source!=='' && status!==Image.Error;
+    property bool enabled: false;
 
-    onStatusChanged: {
-
-    }
     opacity: isValid ? 1.0 : 0.0;
 
     Behavior on opacity { NumberAnimation { duration: 400; easing.type: Easing.InOutCubic} }
