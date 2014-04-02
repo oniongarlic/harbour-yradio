@@ -3,7 +3,7 @@ import QtQuick.XmlListModel 2.0
 
 XmlListModel {
     id: model
-    source: "yle.xml"
+    source: "../yle.xml"
     query: "/radio/channels/channel"
 
     XmlRole { name: "name"; query: "name/string()"; isKey: true; }
