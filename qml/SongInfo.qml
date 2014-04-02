@@ -72,47 +72,53 @@ BackgroundItem {
 
         Label {
             id: curProgram
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: ''
+            anchors.horizontalCenter: parent.horizontalCenter            
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
             font.pixelSize: Theme.fontSizeLarge
+            text: ''
         }
 
         Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Playing now:");
+            anchors.horizontalCenter: parent.horizontalCenter            
             horizontalAlignment: Text.AlignHCenter            
             width: parent.width
             visible: curSongItem.hasSong;
-            font.pixelSize: Theme.fontSizeLarge
+            font.pixelSize: Theme.fontSizeMedium
+            text: qsTr("Playing now:");
         }
 
         SongItem {
             id: curSongItem
             song: curSong;
             visible: hasSong;
-        }
-
-        ArtistImage {
-            id: artistImage;
-            song: showArtistImage ? curSong : null;
-            visible: showArtistImage;
+            ArtistImage {
+                id: artistImage;
+                anchors.horizontalCenter: parent.horizontalCenter
+                song: curSong;
+                enabled: showArtistImage;
+            }
         }
 
         Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Playing next:");
+            anchors.horizontalCenter: parent.horizontalCenter            
             horizontalAlignment: Text.AlignHCenter            
             width: parent.width
             visible: nextSongItem.hasSong || nextNextSongItem.hasSong;
             font.pixelSize: Theme.fontSizeMedium
+            text: qsTr("Playing next:");
         }
 
         SongItem {
             id: nextSongItem
             song: nextSong;
             visible: hasSong;
+            ArtistImage {
+                id: artistNextImage;
+                anchors.horizontalCenter: parent.horizontalCenter
+                song: nextSong;
+                enabled: showArtistImage && !hasSong && nextSong!==null;
+            }
         }
 
         SongItem {
