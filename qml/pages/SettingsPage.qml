@@ -7,7 +7,10 @@ Page {
 
     property int quality: root.streamQuality;
 
-    onQualityChanged: root.streamQuality=quality;
+    onQualityChanged: {
+        root.streamQuality=quality;
+        qualityMenu.changed=true;
+    }
 
     SilicaFlickable {
         anchors.fill: parent
@@ -22,8 +25,11 @@ Page {
             }
 
             ComboBox {
+                id: qualityMenu;
                 label: qsTr("Stream quality");
                 currentIndex: quality-1;
+
+                property bool changed: false;
 
                 menu: ContextMenu {
                     MenuItem { text: qsTr("Low"); onClicked: page.quality=1; }
@@ -67,7 +73,15 @@ Page {
                 font.pixelSize: Theme.fontSizeSmall
                 width: parent.width
                 wrapMode: Text.WordWrap
+                visible: qualityMenu.changed;
             }
+            /*
+            TextSwitch {
+                id: autoPlayLast
+                text: qsTr("Autoplay on start");
+                description: qsTr("Start playback of last used channel on application startup.");
+            }
+            */
 
             TextSwitch {
                 id: loadArtistImages
@@ -86,20 +100,6 @@ Page {
                 textFormat: Text.RichText
                 onLinkActivated: Qt.openUrlExternally(link)
             }
-
-            /*
-            TextSwitch {
-                id: autoPlayLast
-                text: qsTr("Autoplay on start");
-                description: qsTr("Start playback of last used channel on application startup.");
-            }
-
-            TextSwitch {
-                id: autoPlayLast
-                text: qsTr("Autoplay on start");
-                description: qsTr("Start playback of last used channel on application startup.");
-            }
-            */
         }
     }
 }
