@@ -12,6 +12,8 @@ public:
     Q_INVOKABLE QDate getDate(const QString rawDateString);
     Q_INVOKABLE QDateTime getDateTime(const QString rawDateString);
 
+    Q_INVOKABLE QString formatTime(const QString rawDateString);
+
 signals:
 
 public slots:
