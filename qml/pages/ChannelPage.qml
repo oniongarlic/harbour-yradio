@@ -32,12 +32,15 @@ Page {
                 title: channel.name;
             }
 
-            Button {
-                text: qsTr('Facebook');
-                visible: channel.social.facebook!=='' ? true : false;
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked: Qt.openUrlExternally(channel.social.facebook);
+            Label {
+                text: "On the web"
             }
+
+            SomeButton { text: qsTr('Web'); url: channel.social.web; }
+            SomeButton { text: qsTr('Facebook'); url: channel.social.facebook; }
+            SomeButton { text: qsTr('Twitter'); url: channel.social.twitter; }
+            SomeButton { text: qsTr('YouTube'); url: channel.social.youtube; }
+            SomeButton { text: qsTr('Instagram'); url: channel.social.instagram; }
         }
     }
 }
