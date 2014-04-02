@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     Settings *settings;
     DateUtils *dateutils;
-    const QString applicationVersion("0.3.0");
+    const QString applicationVersion("1.0.3");
 
     qmlRegisterType<FileDownloader>("harbour.org.tal", 1, 0, "FileDownloader");
 
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->rootContext()->setContextProperty("settings", settings);
-    view->rootContext()->setContextProperty("dateutils", dateutils);
+    view->rootContext()->setContextProperty("du", dateutils);
     view->rootContext()->setContextProperty("appVersion", applicationVersion);
     view->setSource(SailfishApp::pathTo("qml/harbour-yradio.qml"));
     view->showFullScreen();
