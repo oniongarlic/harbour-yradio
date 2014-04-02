@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 import "pages"
 import "cover"
+import "models"
 
 ApplicationWindow
 {
@@ -22,18 +23,20 @@ ApplicationWindow
     Component.onCompleted: {
         loadArtistImage=settings.getBool("loadArtistImages", true);
         streamQuality=settings.getInt("streamQuality", 1);
-        previousRadioChannel=settings.getInt("previousRadioChannel", -1);        
+        previousRadioChannel=settings.getInt("previousRadioChannel", -1);
     }
 
     onLoadArtistImageChanged: settings.setBool("loadArtistImages", loadArtistImage);
     onStreamQualityChanged: settings.setInt("streamQuality", streamQuality);
     onChannelIdChanged: settings.setInt("previousRadioChannel", channelId);
     onPreviousRadioChannelChanged: {
-        console.debug("Saved channel index is: "+previousRadioChannel);
+        console.debug("*** Saved channel index is: "+previousRadioChannel);
+        console.debug("Available channels: " +channelsModel.count);
         if (previousRadioChannel>-1 && previousRadioChannel<=channelsModel.count) {
-            console.debug("Saved channel index valid, setting current channel to saved");
-            // XXX: Yep, todo!
+            console.debug("Using saved channel");
+            // XXX: Yep, todo!            
             channelId=previousRadioChannel;
+            currentChannel=getChannelObjectFromId(channelId);
         }
     }
 
@@ -64,12 +67,12 @@ ApplicationWindow
         }
     }
 
-    Component {
-        id: programPage
-        ProgramPage {
+//    Component {
+//        id: programPage
+//        ProgramPage {
 
-        }
-    }
+//        }
+//    }
 
     Component {
         id: channelPage
@@ -177,6 +180,8 @@ ApplicationWindow
                                             web: cdata.some_web,
                                             twitter: cdata.some_twitter,
                                             facebook: cdata.some_facebook,
+                                            youtube: cdata.some_youtube,
+                                            instagram: cdata.some_instagram,
                                           }
 
                                       });

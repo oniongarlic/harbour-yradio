@@ -16,7 +16,12 @@ Page {
             channels=channelsPage.createObject(root, {currentChannelIndex: root.channelId });
             pageStack.pushAttached(channels);
         }
-    }    
+    }
+
+    ProgramPage {
+        id: programPage
+        channel: root.currentChannel
+    }
 
     SilicaFlickable {
         id: mainFlickable
@@ -40,7 +45,12 @@ Page {
             }            
             MenuItem {
                 text: qsTr("Programs")
-                onClicked: pageStack.push(programPage, { channel: root.currentChannel } );
+                onClicked: {
+                    console.debug("Pushing program page")
+                    // pageStack.push(programPage, { channel: root.currentChannel } );
+                    pageStack.push(programPage);
+                    console.debug("Program page pushed");
+                }
                 enabled: root.currentChannel===null ? false : true;
             }            
             busy: (player.status==Audio.Loading || player.status==Audio.Buffering) ? true : false;

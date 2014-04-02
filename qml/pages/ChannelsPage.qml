@@ -37,7 +37,7 @@ Page {
                 }
                 onPressAndHold: {
                     channelList.currentIndex=index;
-                }
+                }                
                 Label {
                     // XXX: For now, until we load more channel data
                     anchors.verticalCenter: parent.verticalCenter
