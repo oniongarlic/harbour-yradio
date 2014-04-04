@@ -1,7 +1,7 @@
 #include "DateUtils.h"
 #include <QDebug>
 
-DateUtils::DateUtils(QObject *parent) {
+DateUtils::DateUtils(QObject *parent) : QObject(parent) {
 
 }
 
