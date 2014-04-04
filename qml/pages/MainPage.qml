@@ -49,9 +49,10 @@ Page {
                     console.debug("Pushing program page")
                     // pageStack.push(programPage, { channel: root.currentChannel } );
                     pageStack.push(programPage);
+                    programPage.reset();
                     console.debug("Program page pushed");
                 }
-                enabled: root.currentChannel===null ? false : true;
+                enabled: root.currentChannel===null ? false : root.currentChannel.hasProgram;
             }            
             busy: (player.status==Audio.Loading || player.status==Audio.Buffering) ? true : false;
         }
