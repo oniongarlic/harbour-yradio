@@ -9,7 +9,11 @@ Dialog {
     property Program program;
 
     SilicaFlickable {
+        id: programFlickable
         anchors.fill: parent
+        contentHeight: cs.height
+
+        VerticalScrollDecorator { flickable: programFlickable }
 
         Column {
             id: cs
@@ -20,13 +24,16 @@ Dialog {
                 title: program.title
             }
             Row {
+                // spacing: Theme.paddingLarge
+                // XXX: disable for now, goes into a strange location ?
+                visible: false;
                 Label {
-                    text: program.startTime
+                    text: program.startTime // Qt.formatDate(program.startTime, "hh:mm");
                     font.pixelSize: Theme.fontSizeSmall
                     width: parent.width/2;
                 }
                 Label {
-                    text: program.endTime
+                    text: program.endTime // Qt.formatDate(program.endTime, "hh:mm");
                     font.pixelSize: Theme.fontSizeSmall
                     width: parent.width/2;
                 }
