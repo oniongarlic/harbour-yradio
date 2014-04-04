@@ -5,7 +5,7 @@
 
 /*
 import QtQuick 2.0
-import org.nemomobile.dbus 1.0
+// whatever-i.m.p.o.r.t org.nemomobile.dbus 1.0
 
 QtObject {
     id: dbus
