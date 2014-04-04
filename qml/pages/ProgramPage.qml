@@ -20,6 +20,7 @@ Page {
 
     ProgramDialog {
         id: infoDialog
+        program: programsModel.getProgramObject(programList.currentIndex);
     }
 
     ProgramsModel {
@@ -29,6 +30,11 @@ Page {
 
     Component.onCompleted: {
         console.debug("Requesting load of data");
+        reset();
+    }
+
+    function reset() {
+        programsModel.model.clear();
         programsModel.date=new Date();
     }
 
@@ -36,9 +42,9 @@ Page {
         id: programList
         anchors.fill: parent;
         clip: true;
-        model: programsModel.getModel();
+        model: programsModel.model;
         header: PageHeader {
-            title: qsTr("Programs")
+            title: qsTr("Programs: ")+Qt.formatDate(programsModel.date, "dd.MM.yyyy");
         }
 
         PullDownMenu {
@@ -60,7 +66,7 @@ Page {
                 showMenuOnPressAndHold: true
                 onClicked: {
                     programList.currentIndex=index;                    
-                    // infoDialog.open();
+                    infoDialog.open();
                 }
                 onPressAndHold: {
                     programList.currentIndex=index;                    
@@ -99,12 +105,12 @@ Page {
         id: contextMenuComponent
         ContextMenu {
             id: contextMenu
-            enabled: false;
+            // enabled: false;
             MenuItem {
                 text: qsTr("Details");
                 visible: false;
                 onClicked: {
-                    infoDialog.program=programsModel.getProgramObject(programList.currentIndex);
+                    //infoDialog.program=programsModel.getProgramObject(programList.currentIndex);
                     infoDialog.open();
                 }
             }
