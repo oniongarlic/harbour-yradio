@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.XmlListModel 2.0
-import harbour.org.tal 1.0
+import harbour.yradio 1.0
 import ".."
 
 Item {
