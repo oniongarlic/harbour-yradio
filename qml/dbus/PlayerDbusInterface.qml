@@ -3,6 +3,7 @@
   * Note to Harbour QA: This is not used yet!!!
  **/
 
+/*
 import QtQuick 2.0
 import org.nemomobile.dbus 1.0
 
@@ -22,3 +23,4 @@ QtObject {
     }
 
 }
+*/
