@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_US">
-<defaultcodec>UTF-8</defaultcodec>
+<TS version="2.1" language="en_US">
 <context>
     <name>AboutPage</name>
     <message>
@@ -26,9 +25,40 @@
     </message>
 </context>
 <context>
+    <name>ChannelPage</name>
+    <message>
+        <source>Web</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Facebook</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Twitter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTube</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Instagram</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChannelsPage</name>
     <message>
         <source>Channels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -36,6 +66,13 @@
     <name>CoverPage</name>
     <message>
         <source>No channel selected</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FileDownloader</name>
+    <message>
+        <source>Error: %1 status: %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -55,6 +92,33 @@
     </message>
     <message>
         <source>Select a channel to listen to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Programs</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProgramPage</name>
+    <message>
+        <source>Programs: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add reminder</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

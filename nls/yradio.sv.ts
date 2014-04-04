@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="sv_SE">
-<defaultcodec>UTF-8</defaultcodec>
+<TS version="2.1" language="sv_SE">
 <context>
     <name>About</name>
     <message>
@@ -49,10 +48,41 @@
     </message>
 </context>
 <context>
+    <name>ChannelPage</name>
+    <message>
+        <source>Web</source>
+        <translation type="unfinished">På webben</translation>
+    </message>
+    <message>
+        <source>Facebook</source>
+        <translation type="unfinished">Facebook</translation>
+    </message>
+    <message>
+        <source>Twitter</source>
+        <translation type="unfinished">Twitter</translation>
+    </message>
+    <message>
+        <source>YouTube</source>
+        <translation type="unfinished">YouTube</translation>
+    </message>
+    <message>
+        <source>Instagram</source>
+        <translation type="unfinished">Instagram</translation>
+    </message>
+</context>
+<context>
     <name>ChannelsPage</name>
     <message>
         <source>Channels</source>
         <translation>Kanaler</translation>
+    </message>
+    <message>
+        <source>Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -122,6 +152,13 @@
     </message>
 </context>
 <context>
+    <name>FileDownloader</name>
+    <message>
+        <source>Error: %1 status: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainPage</name>
     <message>
         <source>Connecting...</source>
@@ -162,6 +199,33 @@
     <message>
         <source>Select a channel to listen to</source>
         <translation>Välj kanal</translation>
+    </message>
+    <message>
+        <source>Programs</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProgramPage</name>
+    <message>
+        <source>Programs: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick a date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add reminder</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
