@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     DateUtils *dateutils;
     const QString applicationVersion("1.0.3");
 
-    qmlRegisterType<FileDownloader>("harbour.org.tal", 1, 0, "FileDownloader");
+    qmlRegisterType<FileDownloader>("harbour.yradio", 1, 0, "FileDownloader");
 
     app->setApplicationName("harbour-yradio");
     app->setApplicationVersion(applicationVersion);
