@@ -18,7 +18,8 @@ FileDownloader::FileDownloader(QObject* parent)
     m_networkDiskCache->setCacheDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
     m_networkAccessManager->setCache(m_networkDiskCache);
     m_httpcode=0;
-    m_loading=0.0;
+    m_loading=false;
+    m_progress=0.0;
     m_usecache=true;
 }
 
@@ -26,14 +27,15 @@ void FileDownloader::download(const QUrl url, const QString destination)
 {
     QNetworkRequest request(url);
 
+    qDebug() << "URL: " << url;
+    qDebug() << "Destination: " << destination;
+
     // xxx maybe more options ?
     if (m_usecache) {
+        qDebug() << "Using cache";
         request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
     }
     request.setRawHeader("User-Agent", QString("Y-Radio (Sailfish OS)").toUtf8());
-
-    qDebug() << "URL: " << url;
-    qDebug() << "Destination: " << destination;
 
     if (!destination.isEmpty()) {
         if (destination.startsWith("/")) {
@@ -55,17 +57,16 @@ void FileDownloader::download(const QUrl url, const QString destination)
     }
 
     m_data.clear();
-    m_loading=0.0;
+
+    m_progress=0.0;
+    emit progressChanged();
+
+    m_loading=true;
     emit loadingChanged();
 
     QNetworkReply* reply = m_networkAccessManager->get(request);
     connect(reply, SIGNAL(finished()), this, SLOT(onGetReply()));
     connect(reply, SIGNAL(downloadProgress(qint64, qint64)), this, SLOT(dowloadProgressed(qint64, qint64)));
-}
-
-double FileDownloader::loading() const
-{
-    return m_loading;
 }
 
 void FileDownloader::setUseCache(bool cache) {
@@ -160,12 +161,18 @@ void FileDownloader::onGetReply()
 
     emit complete(r);
 
-    m_loading=0.0;
+    m_loading=false;
     emit loadingChanged();
 }
 
 void FileDownloader::dowloadProgressed(qint64 bytes, qint64 total)
 {
-    m_loading =  double(bytes)/double(total);
-    emit loadingChanged();
+    if (total==0)
+        return;
+
+    m_progress =  double(bytes)/double(total);
+    qDebug() << "Loading: " << bytes << " / " << total;
+    qDebug() << "Progress: " << m_progress;
+
+    emit progressChanged();
 }
