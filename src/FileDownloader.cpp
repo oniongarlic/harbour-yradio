@@ -12,15 +12,15 @@
 QNetworkDiskCache * FileDownloader::m_networkDiskCache = new QNetworkDiskCache();
 
 FileDownloader::FileDownloader(QObject* parent)
-    : QObject(parent)
-    , m_networkAccessManager(new QNetworkAccessManager(this))
+    : QObject(parent),
+    m_networkAccessManager(new QNetworkAccessManager(this)),
+    m_httpcode(0),
+    m_progress(0.0),
+    m_loading(false),
+    m_usecache(true)
 {
     m_networkDiskCache->setCacheDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
     m_networkAccessManager->setCache(m_networkDiskCache);
-    m_httpcode=0;
-    m_loading=false;
-    m_progress=0.0;
-    m_usecache=true;
 }
 
 void FileDownloader::download(const QUrl url, const QString destination)
@@ -30,10 +30,12 @@ void FileDownloader::download(const QUrl url, const QString destination)
     qDebug() << "URL: " << url;
     qDebug() << "Destination: " << destination;
 
-    // xxx maybe more options ?
+    // xxx maybe more options ? export all control attributes?
     if (m_usecache) {
         qDebug() << "Using cache";
         request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
+    } else {
+        request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::AlwaysNetwork);
     }
     request.setRawHeader("User-Agent", QString("Y-Radio (Sailfish OS)").toUtf8());
 
@@ -167,12 +169,13 @@ void FileDownloader::onGetReply()
 
 void FileDownloader::dowloadProgressed(qint64 bytes, qint64 total)
 {
-    if (total==0)
-        return;
-
-    m_progress =  double(bytes)/double(total);
     qDebug() << "Loading: " << bytes << " / " << total;
-    qDebug() << "Progress: " << m_progress;
 
+    if (total==0 || total<0) {
+        m_progress = 0.0;
+    } else {
+        m_progress =  double(bytes)/double(total);
+        qDebug() << "Progress: " << m_progress;
+    }
     emit progressChanged();
 }
