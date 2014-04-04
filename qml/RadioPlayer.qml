@@ -6,6 +6,7 @@ Audio {
     autoLoad: false;
     autoPlay: false;    
     property bool playing: false;
+    property bool buffering: (status==Audio.Loading || status==Audio.Buffering || status==Audio.Stalled) ? true : false;
     property Channel currentChannel: null;
 
     onStopped:{

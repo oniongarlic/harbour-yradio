@@ -11,9 +11,9 @@ Dialog {
     SilicaFlickable {
         id: programFlickable
         anchors.fill: parent
-        contentHeight: cs.height
+        // contentHeight: cs.height
 
-        VerticalScrollDecorator { flickable: programFlickable }
+        VerticalScrollDecorator { flickable: programFlickable }        
 
         Column {
             id: cs
@@ -23,28 +23,21 @@ Dialog {
             PageHeader {
                 title: program.title
             }
-            Row {
-                // spacing: Theme.paddingLarge
-                // XXX: disable for now, goes into a strange location ?
-                visible: false;
-                Label {
-                    text: program.startTime // Qt.formatDate(program.startTime, "hh:mm");
-                    font.pixelSize: Theme.fontSizeSmall
-                    width: parent.width/2;
-                }
-                Label {
-                    text: program.endTime // Qt.formatDate(program.endTime, "hh:mm");
-                    font.pixelSize: Theme.fontSizeSmall
-                    width: parent.width/2;
-                }
+            Label {
+                text: Qt.formatDate(program.startTime, "dd.MM.yyyy")+
+                      " "+
+                      Qt.formatTime(program.startTime, "hh:mm")+
+                      " - "+
+                      Qt.formatTime(program.endTime, "hh:mm");
+
+                font.pixelSize: Theme.fontSizeSmall
             }
             Label {
                 id: synopsis
                 text: program.description
                 wrapMode: Text.WordWrap
-                font.pixelSize: Theme.fontSizeSmall
+                font.pixelSize: Theme.fontSizeMedium
                 width: parent.width;
-                // onLinkActivated: Qt.openUrlExternally(link)
             }
         }
     }

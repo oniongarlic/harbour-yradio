@@ -91,13 +91,15 @@ Page {
                 }
             }
 
+            /*
             MenuItem {
                 text: qsTr("Programs")
-                visible: currentChannel!==null && currentChannel.programInfoId==='' ? false : true;
+                visible: currentChannel!==null && currentChannel.hasProgram;
                 onClicked: {                    
                     showChannelPrograms(channelList.currentIndex);
                 }
             }
+            */
         }
     }
 }

@@ -25,6 +25,6 @@ Column {
         wrapMode: Text.WordWrap
         width: parent.width
         font.pixelSize: Theme.fontSizeSmall
-        text: song!==null ? song.song : '';
+        text: song!==null ? song.title : '';
     }
 }

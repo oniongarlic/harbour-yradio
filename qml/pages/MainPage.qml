@@ -54,7 +54,7 @@ Page {
                 }
                 enabled: root.currentChannel===null ? false : root.currentChannel.hasProgram;
             }            
-            busy: (player.status==Audio.Loading || player.status==Audio.Buffering) ? true : false;
+            busy: player.buffering
         }
         contentHeight: column.height
 
@@ -121,13 +121,14 @@ Page {
     DockedPanel {
         id: playPanel
         width: parent.width
-        height: dpc.height + Theme.paddingLarge
+        height: dpc.height + Theme.paddingLarge*2;
         dock: Dock.Bottom
         open: root.currentChannel===null ? false : true;
 
         Column {
             id: dpc
             width: parent.width
+            spacing: Theme.paddingSmall;
             IconButton {
                 anchors.horizontalCenter: parent.horizontalCenter
                 icon.source: player.playing ? "image://theme/icon-l-pause" : "image://theme/icon-l-play"
@@ -143,10 +144,10 @@ Page {
                 value: player.bufferProgress;
                 width: parent.width/1.5
                 visible: true;
-                opacity: (player.status==Audio.Buffering || player.status==Audio.Loading) ? 1.0 : 0.0;
+                opacity: player.buffering ? 1.0 : 0.0;
                 minimumValue: 0;
                 maximumValue: 1;
-                Behavior on opacity { NumberAnimation { duration: 500; } }
+                Behavior on opacity { NumberAnimation { duration: 750; } }
             }
         }
     }

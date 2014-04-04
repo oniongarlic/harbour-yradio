@@ -10,6 +10,7 @@ Page {
     SilicaFlickable {
         anchors.fill: parent
 
+        /*
         PullDownMenu {
             MenuItem {
                 text: qsTr("Programs");
@@ -22,6 +23,7 @@ Page {
                 onClicked: pageStack.push(songsPage);
             }
         }
+        */
 
         Column {
             id: cs

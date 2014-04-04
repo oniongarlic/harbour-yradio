@@ -88,13 +88,6 @@ ApplicationWindow
         }
     }
 
-    Component {
-        id: songComponent
-        Song {
-
-        }
-    }
-
     ChannelsModel {
         id: channelsModel
     }

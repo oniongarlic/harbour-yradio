@@ -9,8 +9,8 @@ QtObject {
     property string surl_lq;
     property string songInfoId;
     property string programInfoId;
-    property bool hasProgram: programInfoId!==null;
-    property bool hasSongInfo: songInfoId!==null;
+    property bool hasProgram: programInfoId!=='';
+    property bool hasSongInfo: songInfoId!=='';
 
     property SocialMedia social: SocialMedia {}
 

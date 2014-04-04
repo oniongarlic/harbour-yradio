@@ -33,8 +33,7 @@ Page {
         reset();
     }
 
-    function reset() {
-        programsModel.model.clear();
+    function reset() {        
         programsModel.date=new Date();
     }
 
@@ -78,7 +77,7 @@ Page {
                     height: Math.max(nameLabel.paintedHeight, timeLabel.paintedHeight);
                     Label {
                         id: timeLabel
-                        text: du.formatTime(startTime.substring(0,19));
+                        text: Qt.formatTime(startTime, "hh:mm"); //  du.formatTime(startTime.substring(0,19));
                         width: parent.width/5;
                         wrapMode: Text.NoWrap;
                         font.pixelSize: Theme.fontSizeLarge;

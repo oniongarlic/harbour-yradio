@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.XmlListModel 2.0
 import "mixradio.js" as NMIX
+import "models";
 
 BackgroundItem {
     id: songinfo;
@@ -14,8 +14,7 @@ BackgroundItem {
 
     property Program _curProgram;
 
-    property bool hasSong: curSong!==null;
-    property bool fetching: songInfoCurrent.status===XmlListModel.Loading || songInfoNext.status===XmlListModel.Loading;
+    property bool hasSong: curSong!==null;    
     property bool showArtistImage: true;
 
     property string infoId: null;
@@ -49,7 +48,7 @@ BackgroundItem {
         // visualParent: pageStack
         MenuLayout {
             MenuItem {
-                text: qsTr("Refresh"); onClicked: updateAll(); enabled: !fetching;
+                text: qsTr("Refresh"); onClicked: updateAll();
             }
             MenuItem {
                 text: qsTr("Search"); onClicked: doWebSearch(curSongArtist, curSong);
@@ -96,7 +95,7 @@ BackgroundItem {
                 id: artistImage;
                 anchors.horizontalCenter: parent.horizontalCenter
                 song: curSong;
-                enabled: showArtistImage;
+                enabled: showArtistImage && hasSong;
             }
         }
 

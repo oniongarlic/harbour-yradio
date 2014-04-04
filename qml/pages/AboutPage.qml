@@ -82,6 +82,7 @@ Page {
                 anchors.topMargin: 20
                 width: parent.width/3                
                 text: "<style>a { color: #f0f0ff; display: block; margin-left: auto; margin-right: auto;}</style>"+
+                      "<a href='https://twitter.com/oniongarlic'>@oniongarlic</a><br/>"+
                       "<a href='mailto:onion@tal.org'>onion@tal.org</a><br/>"+
                       "<a href='http://www.tal.org/'>www.tal.org</a>"
                 horizontalAlignment: Text.AlignHCenter
