@@ -7,7 +7,7 @@ Item {
 
     property variant date;
     property string programId: ''
-    property bool loading: downloader.loading>0.0 && downloader.loading<1.0;
+    property alias loading: downloader.loading;
     property ListModel model: programsModel
 
     function getModel() {
