@@ -16,10 +16,9 @@ Item {
 
     function reload() {
         var url=getProgramDataUrl(date);
+        programsModel.clear();
         if (url) {
             downloader.download(url,'');
-        } else {
-            programsModel.clear();
         }
     }
 
@@ -37,7 +36,10 @@ Item {
         //return "http://api.tal.org/0.0/testing/2013-10-8.json"
     }
 
-    function getProgramObject(idx) {
+    function getProgramObject(idx) {        
+        if (programId=='')
+            return null;
+
         var cdata=programsModel.get(idx);
 
         if (cdata===null)
@@ -59,7 +61,7 @@ Item {
     }
 
     onDateChanged: {
-        console.debug("New date, reloading model data")
+        console.debug("*** New date, reloading model data");
         reload();
     }
 
@@ -69,6 +71,7 @@ Item {
 
     FileDownloader {
         id: downloader
+        cache: true;
         onComplete: {
             console.debug("*** Download completed")
             programsModel.clear();
@@ -80,8 +83,8 @@ Item {
             if (!o)
                 return;
 
-            console.debug(o.date)
-            console.debug(o.service)
+            console.debug(o.date);
+            console.debug(o.service);
 
             try {
                 for (var id in o.broadcasts) {                    
@@ -91,10 +94,17 @@ Item {
                     console.debug("ID: "+id);
                     console.debug("Prog:"+p.title);
                     console.debug("Synopsis:"+p.synopsis);
-                    console.debug("S:"+p.start);
-                    console.debug("E:"+p.end);
+                    console.debug("Sstr:"+p.start);
+                    console.debug("Estr:"+p.end);
 
-                    programsModel.append({programName: p.title, startTime: p.start, endTime: p.end, description: p.synopsis});
+                    // Parse the times to proper Qt dates
+                    var st=du.getDateTime(p.start.substring(0,19));
+                    var et=du.getDateTime(p.end.substring(0,19));
+
+                    console.debug("ST:"+st);
+                    console.debug("ET:"+et);
+
+                    programsModel.append({programName: p.title, startTime: st, endTime: et, description: p.synopsis});
                 }
             } catch (e) {
                 console.debug("Failed to parse program data: "+e);
