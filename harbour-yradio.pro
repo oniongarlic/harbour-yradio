@@ -42,7 +42,7 @@ OTHER_FILES += qml/*.qml \
     qml/pages/*.qml \
     qml/models/*.qml \
     qml/*.js \
-    qml/yle.xml
+    qml/yle.xml rpm/*.yaml
 
 
 RESOURCES += \
