@@ -16,14 +16,15 @@ int main(int argc, char *argv[])
     QTranslator translator;
     Settings *settings;
     DateUtils *dateutils;
-    const QString applicationVersion("1.0.3");
+    const QString applicationVersion("1.0.3.1");
 
     qmlRegisterType<FileDownloader>("harbour.yradio", 1, 0, "FileDownloader");
 
     app->setApplicationName("harbour-yradio");
     app->setApplicationVersion(applicationVersion);
-    app->setOrganizationDomain("org.tal");
-    app->setOrganizationName("TalOrg");
+    // Note: DO NOT SET THESE EVEN IF IT WOULD MAKE SENSE TO DO SO.. stupid sailfishapp
+    // app->setOrganizationDomain("org.tal");
+    // app->setOrganizationName("TalOrg");
 
     // QTextCodec::setCodecForTr(QTextCodec::codecForName("utf8"));
     QString locale(QLocale::system().name());
