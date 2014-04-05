@@ -34,6 +34,8 @@
         <progInfo>yleradio1</progInfo>
         <somes>
          <some type="web">http://yle.fi/radio/yleradio1/</some>
+         <some type="twitter">https://twitter.com/yleradio1</some>
+         <some type="facebook">https://www.facebook.com/yleradio1</some>
         </somes>
   </channel>
 
@@ -69,6 +71,7 @@
         <songInfo>r02</songInfo>
 	<progInfo>ylex</progInfo>
 	<somes>
+         <some type="web">http://ylex.yle.fi/</some>
 	 <some type="twitter">http://www.twitter.com/ylex</some>
 	 <some type="facebook">http://www.facebook.com/ylex.fi</some>
 	 <some type="youtube">http://www.youtube.com/user/ylexvideos</some>
@@ -84,6 +87,9 @@
         <stream quality="high">http://stream2.yle.mobi:8000/liveklassinen256.mp3</stream>
         </streams>
         <progInfo>ylenklassinen</progInfo>
+        <somes>
+         <some type="web">http://yle.fi/musiikki/klassinen/</some>
+        </somes>
   </channel>
 
   <channel>
@@ -96,6 +102,7 @@
         </streams>
         <news></news>
         <somes>
+         <some type="web">http://yle.fi/puhe/</some>
          <some type="facebook">https://www.facebook.com/ylepuhe</some>
         </somes>
         <songInfo></songInfo>
@@ -113,6 +120,7 @@
         <songInfo></songInfo>
         <progInfo></progInfo>
         <somes>
+         <some type="web">http://yle.fi/sapmi/</some>
          <some type="twitter">https://twitter.com/YleSapmi</some>
          <some type="facebook">https://www.facebook.com/Yle.Sapmi1</some>
         </somes>
@@ -128,6 +136,9 @@
 	</streams>
 	<news>http://svenska.yle.fi/rss/radio-vega</news>
 	<progInfo>vega/aboland</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+        </somes>
   </channel>
 
   <channel>
@@ -140,6 +151,11 @@
         </streams>
         <news>http://svenska.yle.fi/rss/radio-vega</news>
         <progInfo>vega/osterbotten</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+         <some type="twitter">https://twitter.com/Yle_Osterbotten</some>
+         <some type="facebook">https://www.facebook.com/yle.osterbotten</some>
+        </somes>
   </channel>
 
   <channel>
@@ -152,6 +168,9 @@
         </streams>
         <news>http://svenska.yle.fi/rss/radio-vega</news>
         <progInfo>vega/ostnyland</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+        </somes>
   </channel>
 
   <channel>
@@ -164,6 +183,9 @@
         </streams>
         <news>http://svenska.yle.fi/rss/radio-vega</news>
         <progInfo>vega/vastnyland</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+        </somes>
   </channel>
 
   <channel>
@@ -176,6 +198,9 @@
         </streams>
         <news>http://svenska.yle.fi/rss/radio-vega</news>
         <progInfo>vega/huvudstad</progInfo>
+        <somes>
+         <some type="web">http://svenska.yle.fi/radio-vega</some>
+        </somes>
   </channel>
 
   <channel>
