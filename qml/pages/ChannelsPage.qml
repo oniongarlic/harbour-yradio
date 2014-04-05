@@ -8,6 +8,13 @@ Page {
     property alias currentChannelIndex: channelList.currentIndex;
     property Channel currentChannel: null;
 
+    onCurrentChannelIndexChanged: {
+        if (currentChannel!==null)
+            currentChannel.destroy();
+        console.debug("Channels: setting current")
+        currentChannel=root.getChannelObjectFromId(currentChannelIndex);
+    }
+
     SilicaListView {
         id: channelList
         anchors.fill: parent;
@@ -59,7 +66,8 @@ Page {
         root.setChannel(index, autoPlay);        
     }
 
-    function showChannel(index) {                
+    function showChannel(index) {
+        console.debug("Showing channel details")
         pageStack.push(channelPage, { channel: currentChannel } );
     }
 
@@ -67,11 +75,7 @@ Page {
         pageStack.push(programPage, { channel: currentChannel } );
     }
 
-    onCurrentChannelIndexChanged: {
-        if (currentChannel!==null)
-            currentChannel.destroy();
-        currentChannel=root.getChannelObjectFromId(currentChannelIndex);
-    }
+
 
     Component {
         id: contextMenuComponent

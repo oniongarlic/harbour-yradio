@@ -12,7 +12,7 @@ QtObject {
     property bool hasProgram: programInfoId!=='';
     property bool hasSongInfo: songInfoId!=='';
 
-    property SocialMedia social: SocialMedia {}
+    property SocialMedia social: SocialMedia { }
 
     // Ok, for now all channels have low/med/high
     function getStreamUrl(quality) {

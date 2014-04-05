@@ -161,23 +161,22 @@ ApplicationWindow
         if (cdata===null)
             return null;
 
-        return channelComponent.createObject(root, {
+        var c=channelComponent.createObject(root, {
                                           name: cdata.name,
                                           surl_lq: cdata.stream_low,
                                           surl_mq: cdata.stream_medium,
                                           surl_hq: cdata.stream_high,
                                           url: cdata.url,
                                           songInfoId: cdata.song_info_id,
-                                          programInfoId: cdata.program_info_id,
-                                          social: {
-                                            web: cdata.some_web,
-                                            twitter: cdata.some_twitter,
-                                            facebook: cdata.some_facebook,
-                                            youtube: cdata.some_youtube,
-                                            instagram: cdata.some_instagram,
-                                          }
-
+                                          programInfoId: cdata.program_info_id
                                       });
+        c.social.web=cdata.some_web;
+        c.social.twitter=cdata.some_twitter;
+        c.social.facebook= cdata.some_facebook;
+        c.social.youtube= cdata.some_youtube;
+        c.social.instagram= cdata.some_instagram;
+
+        return c;
     }
 
     function getChannelObjectFromId(id) {

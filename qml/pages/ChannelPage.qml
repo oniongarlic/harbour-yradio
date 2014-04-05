@@ -35,7 +35,7 @@ Page {
             }
 
             Label {
-                text: "On the web"
+                text: qsTr("On the web");
             }
 
             SomeButton { text: qsTr('Web'); url: channel.social.web; }
