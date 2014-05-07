@@ -26,9 +26,7 @@
         <name>YLE Radio 1</name>
         <category></category>
         <streams>
-        <stream quality="low">http://stream2.yle.mobi:8000/radio1.mp3</stream>
-        <stream quality="medium">http://stream2.yle.mobi:8000/liveradio1128.mp3</stream>
-        <stream quality="high">http://stream2.yle.mobi:8000/liveradio1256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_1_64@113878</stream>
         </streams>
         <songInfo>r01</songInfo>
         <progInfo>yleradio1</progInfo>
@@ -43,9 +41,7 @@
 	<name>YLE X3M</name>
         <category></category>
 	<streams>
-	<stream quality="low">http://stream2.yle.mobi:8000/x3m.mp3</stream>
-	<stream quality="medium">http://stream2.yle.mobi:8000/livex3m128.mp3</stream>
-	<stream quality="high">http://stream2.yle.mobi:8000/livex3m256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_6_64@113883</stream>
 	</streams>
 	<news type="rss">http://svenska.yle.fi/rss/x3m</news>
         <songInfo>r44</songInfo>
@@ -63,9 +59,7 @@
 	<name>YLEX</name>
         <category></category>
 	<streams>
-	<stream quality="low">http://stream2.yle.mobi:8000/ylex.mp3</stream>
-	<stream quality="medium">http://stream2.yle.mobi:8000/liveylex128.mp3</stream>
-	<stream quality="high">http://stream2.yle.mobi:8000/liveylex256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_2_64@113879</stream>
 	</streams>
 	<news type="rss"></news>
         <songInfo>r02</songInfo>
@@ -82,9 +76,7 @@
     <channel>
         <name>YLE Klassinen</name>
         <streams>
-        <stream quality="low">http://stream2.yle.mobi:8000/liveklassinen.mp3</stream>
-        <stream quality="medium">http://stream2.yle.mobi:8000/liveklassinen128.mp3</stream>
-        <stream quality="high">http://stream2.yle.mobi:8000/liveklassinen256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_4_64@113881</stream>
         </streams>
         <progInfo>ylenklassinen</progInfo>
         <somes>
@@ -96,9 +88,7 @@
         <name>YLE Puhe</name>
         <category></category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/ylepuhe.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/liveradiopuhe128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/liveradiopuhe256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_5_64@113882</stream>
         </streams>
         <news></news>
         <somes>
@@ -113,9 +103,7 @@
         <name>YLE Sámi Radio</name>
         <category></category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/samiradio.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/samiradio128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/samiradio256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_33_64@113910</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -130,9 +118,8 @@
 	<name>YLE Radio Vega (Åboland)</name>
         <category>Radio Vega</category>
 	<streams>
-	<stream quality="low">http://stream2.yle.mobi:8000/vega_aboland.mp3</stream>
-	<stream quality="medium">http://stream2.yle.mobi:8000/vegaaboland128.mp3</stream>
-	<stream quality="high">http://stream2.yle.mobi:8000/vegaaboland256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_32_64@113909</stream>
+
 	</streams>
 	<news>http://svenska.yle.fi/rss/radio-vega</news>
 	<progInfo>vega/aboland</progInfo>
@@ -145,9 +132,8 @@
         <name>YLE Radio Vega (Österbotten)</name>
         <category>Radio Vega</category>
         <streams>
-        <stream quality="low">http://stream2.yle.mobi:8000/vega_osterbotten.mp3</stream>
-        <stream quality="medium">http://stream2.yle.mobi:8000/a_vegaosterbotten128.mp3</stream>
-        <stream quality="high">http://stream2.yle.mobi:8000/a_vegaosterbotten256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_31_64@113908</stream>
+
         </streams>
         <news>http://svenska.yle.fi/rss/radio-vega</news>
         <progInfo>vega/osterbotten</progInfo>
@@ -162,9 +148,8 @@
         <name>YLE Radio Vega (Östnyland)</name>
         <category>Radio Vega</category>
         <streams>
-        <stream quality="low">http://stream2.yle.mobi:8000/vega_ostnyland.mp3</stream>
-        <stream quality="medium">http://stream2.yle.mobi:8000/a_vegaost128.mp3</stream>
-        <stream quality="high">http://stream2.yle.mobi:8000/a_vegaost256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_29_64@113906</stream>
+
         </streams>
         <news>http://svenska.yle.fi/rss/radio-vega</news>
         <progInfo>vega/ostnyland</progInfo>
@@ -177,9 +162,7 @@
         <name>YLE Radio Vega (Västnyland)</name>
         <category>Radio Vega</category>
         <streams>
-        <stream quality="low">http://stream2.yle.mobi:8000/vega_vastnyland.mp3</stream>
-        <stream quality="medium">http://stream2.yle.mobi:8000/vegavastnyland128.mp3</stream>
-        <stream quality="high">http://stream2.yle.mobi:8000/vegavastnyland256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_30_64@113907</stream>
         </streams>
         <news>http://svenska.yle.fi/rss/radio-vega</news>
         <progInfo>vega/vastnyland</progInfo>
@@ -192,9 +175,7 @@
         <name>YLE Radio Vega (Huvudstadsregionen)</name>
         <category>Radio Vega</category>
         <streams>
-        <stream quality="low">http://stream2.yle.mobi:8000/vega_huvudstad.mp3</stream>
-        <stream quality="medium">http://stream2.yle.mobi:8000/vegahuvudstad128.mp3</stream>
-        <stream quality="high">http://stream2.yle.mobi:8000/vegahuvudstad256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_7_64@113884</stream>
         </streams>
         <news>http://svenska.yle.fi/rss/radio-vega</news>
         <progInfo>vega/huvudstad</progInfo>
@@ -207,9 +188,7 @@
         <name>YLE Suomi (Ylen aikainen)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/yleaikainen.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/yleaikainen128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/yleaikainen256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_3_64@113880</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -226,9 +205,7 @@
         <name>YLE Suomi (Turku)</name>
         <category>Radio Suomi</category>
 	<streams>
-	 <stream quality="low">http://stream2.yle.mobi:8000/a_turunradio.mp3</stream>
-	 <stream quality="medium">http://stream2.yle.mobi:8000/a_turunradio128.mp3</stream>
-	 <stream quality="high">http://stream2.yle.mobi:8000/a_turunradio256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_27_64@113904</stream>
 	</streams>
         <songInfo></songInfo>
 	<progInfo></progInfo>
@@ -243,9 +220,7 @@
         <name>YLE Suomi (Tampere)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_tampere.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_tampere128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_tampere256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_26_64@113903</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -260,9 +235,7 @@
         <name>YLE Suomi (Satakunta)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_satakunta.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_satakunta128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_satakunta256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_23_64@113900</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -277,9 +250,7 @@
         <name>YLE Suomi (Oulu)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_ouluradio.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_ouluradio128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_ouluradio256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_22_64@113899</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -294,9 +265,7 @@
         <name>YLE Suomi (Etelä-Karjalan Radio)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_etelakarjala.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_etelakarjala128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_etelakarjala256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_19_64@113896</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -313,9 +282,7 @@
         <name>YLE Suomi (Etelä-Savon Radio)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_etelasavo.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_etelasavo128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_etelasavo256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_21_64@113898</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -332,9 +299,7 @@
         <name>YLE Suomi (Kainuun Radio)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_kainuu.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_kainuu128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_kainuu256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_13_64@113890</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -351,9 +316,7 @@
         <name>YLE Suomi (Kymeenlaakson Radio)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_kymenlaakso.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_kymenlaakso128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_kymenlaakso256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_16_64@113893</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -370,9 +333,7 @@
         <name>YLE Suomi (Lahden Radio)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_lahdenradio.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_lahdenradio128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_lahdenradio256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_18_64@113895</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -389,9 +350,7 @@
         <name>YLE Suomi (Pohjanmaan Radio)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_pohjanmaa.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_pohjanmaa128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_pohjanmaa256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_28_64@113905</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -408,9 +367,7 @@
         <name>YLE Suomi (Pohjois-Karjalan Radio)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_pohjkarjala.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_pohjkarjala128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_pohjkarjala256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_11_64@113888</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -427,9 +384,8 @@
         <name>YLE Suomi (Radio Häme)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_radiohame.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_radiohame128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_radiohame256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_10_64@113887</stream>
+
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -446,9 +402,7 @@
         <name>YLE Suomi (Radio Itä-Uusimaa)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_itauusimaa.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_itauusimaa128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_itauusimaa256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_24_64@113901</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -465,9 +419,7 @@
         <name>YLE Suomi (Radio Keski-Pohjanmaa)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_keskipohjanmaa.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_keskipohjanmaa128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_keskipohjanmaa256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_15_64@113892</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -484,9 +436,7 @@
         <name>YLE Suomi (Keski-Suomi)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_keskisuomi.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_keskisuomi128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_keskisuomi256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_12_64@113889</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -503,9 +453,7 @@
         <name>YLE Suomi (Radio Perämeri)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_perameri.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_perameri128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_perameri256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_14_64@113891</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -522,9 +470,7 @@
         <name>YLE Suomi (Radio Savo)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_radiosavo.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_radiosavo128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_radiosavo256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_17_64@113894</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
@@ -541,9 +487,7 @@
         <name>YLE Suomi (Lappi)</name>
         <category>Radio Suomi</category>
         <streams>
-         <stream quality="low">http://stream2.yle.mobi:8000/a_lapinradio.mp3</stream>
-         <stream quality="medium">http://stream2.yle.mobi:8000/a_lapinradio128.mp3</stream>
-         <stream quality="high">http://stream2.yle.mobi:8000/a_lapinradio256.mp3</stream>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_25_64@113902</stream>
         </streams>
         <songInfo></songInfo>
         <progInfo></progInfo>
