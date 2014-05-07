@@ -4,9 +4,9 @@ import QtQuick 2.0
 QtObject {
     property string name;
     property string url;
-    property string surl_hq;
-    property string surl_mq;
     property string surl_lq;
+    property string surl_mq;
+    property string surl_hq;
     property string songInfoId;
     property string programInfoId;
     property bool hasProgram: programInfoId!=='';
@@ -16,6 +16,8 @@ QtObject {
 
     // Ok, for now all channels have low/med/high
     function getStreamUrl(quality) {
+        return surl_lq;
+        /*
         switch (quality) {
         case 1:
             return surl_lq;
@@ -25,5 +27,6 @@ QtObject {
             return surl_hq;
         }
         return surl_mq;
+        */
     }
 }

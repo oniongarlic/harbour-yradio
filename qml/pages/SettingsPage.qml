@@ -33,8 +33,8 @@ Page {
 
                 menu: ContextMenu {
                     MenuItem { text: qsTr("Low"); onClicked: page.quality=1; }
-                    MenuItem { text: qsTr("Medium"); onClicked: page.quality=2; }
-                    MenuItem { text: qsTr("High"); onClicked: page.quality=3; }
+                    // MenuItem { text: qsTr("Medium"); onClicked: page.quality=2; }
+                    // MenuItem { text: qsTr("High"); onClicked: page.quality=3; }
                 }
             }
 
@@ -59,22 +59,24 @@ Page {
                     }
                 }
             }
+
             Label {
                 text: qsTr("High quality uses more bandwidth! Not recommended if you don't have an unlimited 4G/3G data plan or use WiFi.");
-                width: parent.width
-                font.pixelSize: Theme.fontSizeSmall
+                width: parent.width;
+                font.pixelSize: Theme.fontSizeSmall;
                 font.italic: true;
                 visible: quality===3;
                 wrapMode: Text.WordWrap
             }
-
+            /*
             Label {
                 text: qsTr("Restart playback to use new quality setting.");
-                font.pixelSize: Theme.fontSizeSmall
-                width: parent.width
-                wrapMode: Text.WordWrap
+                font.pixelSize: Theme.fontSizeSmall;
+                width: parent.width;
+                wrapMode: Text.WordWrap;
                 visible: qualityMenu.changed;
             }
+            */
             /*
             TextSwitch {
                 id: autoPlayLast
@@ -93,12 +95,12 @@ Page {
 
             Label {
                 text: qsTr("By enabling artist image loading you agree the the Nokia MixRadio <a href='http://www.nokia.com/global/privacy/privacy/service-terms/nokia-service-terms/'>Nokia Service Terms and Privacy Policy</a>");
-                font.pixelSize: Theme.fontSizeSmall
-                width: parent.width
+                font.pixelSize: Theme.fontSizeSmall;
+                width: parent.width;
                 visible: loadArtistImages.checked;
-                wrapMode: Text.WordWrap
-                textFormat: Text.RichText
-                onLinkActivated: Qt.openUrlExternally(link)
+                wrapMode: Text.WordWrap;
+                textFormat: Text.RichText;
+                onLinkActivated: Qt.openUrlExternally(link);
             }
         }
     }
