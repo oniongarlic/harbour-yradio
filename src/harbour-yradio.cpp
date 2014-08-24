@@ -9,6 +9,8 @@
 
 #include "FileDownloader.h"
 #include "DateUtils.h"
+#include "gst/httpplayer.h"
+#include "gst/rtspplayer.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,9 +18,11 @@ int main(int argc, char *argv[])
     QTranslator translator;
     Settings *settings;
     DateUtils *dateutils;
-    const QString applicationVersion("1.0.3.1");
+    const QString applicationVersion("1.1.0");
 
     qmlRegisterType<FileDownloader>("harbour.yradio", 1, 0, "FileDownloader");
+    qmlRegisterType<HTTPPlayer>("harbour.yradio.player", 1, 0, "HttpPlayer");
+    qmlRegisterType<RTSPPlayer>("harbour.yradio.player", 1, 0, "RtspPlayer");
 
     app->setApplicationName("harbour-yradio");
     app->setApplicationVersion(applicationVersion);

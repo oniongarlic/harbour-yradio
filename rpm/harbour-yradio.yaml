@@ -17,6 +17,7 @@ PkgConfigBR:
 - Qt5Core
 - Qt5Qml
 - Qt5Quick
+- gstreamer-0.10
 Requires:
 - qt5-qtdeclarative-import-xmllistmodel
 - sailfishsilica-qt5 >= 0.10.9

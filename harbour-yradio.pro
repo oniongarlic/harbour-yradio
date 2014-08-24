@@ -14,6 +14,12 @@ SOURCES += src/harbour-yradio.cpp src/settings.cpp src/FileDownloader.cpp src/Da
 
 HEADERS += src/settings.h src/FileDownloader.h src/DateUtils.h
 
+
+# Gstreamer player
+PKGCONFIG=glib-2.0 gthread-2.0 gstreamer-0.10
+SOURCES += src/gst/abstractplayer.cpp src/gst/httpplayer.cpp src/gst/rtspplayer.cpp  
+HEADERS += src/gst/abstractplayer.h src/gst/httpplayer.h src/gst/rtspplayer.h
+
 # lupdate src/*.{cpp,h} qml/*.{qml,js} -ts nls/*.ts
 
 CODECFORTR = UTF-8
