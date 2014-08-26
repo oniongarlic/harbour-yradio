@@ -131,8 +131,8 @@ Page {
             spacing: Theme.paddingSmall;
             IconButton {
                 anchors.horizontalCenter: parent.horizontalCenter
-                icon.source: player.playing ? "image://theme/icon-l-pause" : "image://theme/icon-l-play"
-                enabled: player.source ? true: false;
+                icon.source: player.playing || player.connecting ? "image://theme/icon-l-pause" : "image://theme/icon-l-play"
+                enabled: player.url ? true: false;
                 onClicked: {
                     player.toggle();                    
                 }
@@ -141,12 +141,12 @@ Page {
             ProgressBar {
                 id: buffering
                 anchors.horizontalCenter: parent.horizontalCenter;
-                value: player.bufferProgress;
+                value: player.bufferpercent;
                 width: parent.width/1.5
                 visible: true;
                 opacity: player.buffering ? 1.0 : 0.0;
                 minimumValue: 0;
-                maximumValue: 1;
+                maximumValue: 100;
                 Behavior on opacity { NumberAnimation { duration: 750; } }
             }
         }

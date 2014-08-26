@@ -12,7 +12,7 @@ ApplicationWindow
     property bool loadArtistImage: false;
     property int streamQuality: 1;
     property int previousRadioChannel: -1;
-    property alias radioSource: radioPlayer.source;
+    property alias radioSource: radioPlayer.url;
 
     // The channel information object of the currently selected channel
     property Channel currentChannel: null;
@@ -130,9 +130,10 @@ ApplicationWindow
 
     RadioPlayer {
         id: radioPlayer
-        source: currentChannel===null ? '' : currentChannel.getStreamUrl(streamQuality);
-        onSourceChanged: console.debug("RadioPlayerSource: "+source);
+        url: currentChannel===null ? '' : currentChannel.getStreamUrl(streamQuality);
+        onUrlChanged: console.debug("RadioPlayerSource: "+url);
 
+        /*
         onError: {
             switch (status) {
             case 8:
@@ -142,6 +143,7 @@ ApplicationWindow
             default:
             }
         }
+        */
     }
 
     // Go to next channel in list.
