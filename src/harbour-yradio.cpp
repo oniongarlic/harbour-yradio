@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
     DateUtils *dateutils;
     const QString applicationVersion("1.1.0");
 
+    gst_init(&argc, &argv);
+
     qmlRegisterType<FileDownloader>("harbour.yradio", 1, 0, "FileDownloader");
     qmlRegisterType<HTTPPlayer>("harbour.yradio.player", 1, 0, "HttpPlayer");
     qmlRegisterType<RTSPPlayer>("harbour.yradio.player", 1, 0, "RtspPlayer");
