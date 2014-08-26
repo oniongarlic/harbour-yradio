@@ -105,7 +105,9 @@ player_bus_call(GstBus *bus, GstMessage *msg, gpointer data)
 
         if (GST_MESSAGE_SRC(msg)==GST_OBJECT(pipe)) {
             m_this->setPlaying(newstate==GST_STATE_PLAYING ? true : false);
-            if (m_this->isPlaying()) m_this->setConnecting(false);
+            if (m_this->isPlaying()) {
+                m_this->setConnecting(false);
+            }
 
             if (newstate==GST_STATE_READY) {
                 m_this->setError(false, 0);
@@ -168,6 +170,7 @@ AbstractPlayer::AbstractPlayer(GstElement *src, QObject *parent) :
 
     m_sink=gst_element_factory_make("pulsesink", "sink");
     g_assert(m_sink);
+    g_object_set(m_sink, "mute", FALSE , NULL);
 
     m_volume=gst_element_factory_make("volume", "volume");
     g_assert(m_volume);
@@ -204,6 +207,7 @@ AbstractPlayer::AbstractPlayer(GstElement *src, QObject *parent) :
 }
 
 #define GET_EQ_BAND(band) { double eq; g_object_get(m_eq, band, &eq, NULL); return eq; }
+//#define SET_EQ_BAND(_eq, _band) void AbstractPlayer::setEqBand0(double eq) { g_object_set(m_eq, "band0", eq, NULL); emit eqBand0Changed(); }
 
 double AbstractPlayer::getEqBand0() { GET_EQ_BAND("band0"); }
 double AbstractPlayer::getEqBand1() { GET_EQ_BAND("band1"); }
@@ -288,6 +292,15 @@ void AbstractPlayer::setUrl(const QUrl &newUrl)
 
     if (!newUrl.isValid()) {
         qDebug("Invalid URL");
+        m_url.clear();
+        emit urlChanged();
+        return;
+    }
+
+    if (newUrl.isEmpty()) {
+        qDebug("Empty URL");
+        m_url.clear();
+        emit urlChanged();
         return;
     }
 

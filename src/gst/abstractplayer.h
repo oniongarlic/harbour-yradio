@@ -129,6 +129,11 @@ signals:
     void eqBand1Changed();
     void eqBand2Changed();
 
+    void playing();
+    void stopped();
+
+    void error();
+
 public slots:
 
 protected:

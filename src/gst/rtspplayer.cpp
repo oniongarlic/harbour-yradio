@@ -10,7 +10,11 @@ static GstElement *get_rtsp_source_element()
 
     src=gst_element_factory_make("rtspsrc", "rtsp");
     g_assert(src);
-    g_object_set(src, "retry", 4, "latency", 5000, NULL);    
+
+    g_object_set(src, "retry", 4,
+                 "latency", 5000,
+                 "protocols", 4,
+                 NULL);
 
     return src;
 }
