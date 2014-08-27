@@ -130,10 +130,9 @@ ApplicationWindow
 
     RadioPlayer {
         id: radioPlayer
-        source: currentChannel===null ? '' : currentChannel.getStreamUrl(streamQuality);
-        onSourceChanged: console.debug("RadioPlayerSource: "+source);
+         source: currentChannel===null ? '' : currentChannel.getStreamUrl(streamQuality);
 
-        onError: {
+        onError: {            
             switch (status) {
             case 8:
                 errorDialog.errorMsg=radioPlayer.errorString;
