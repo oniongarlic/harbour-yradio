@@ -3,8 +3,8 @@ import QtMultimedia 5.0
 
 Audio {
     id: radioPlayer
-    autoLoad: false;
-    autoPlay: false;    
+    //autoLoad: false;
+    //autoPlay: false;
     property bool playing: false;
     property bool buffering: (status==Audio.Loading || status==Audio.Buffering || status==Audio.Stalled) ? true : false;
     property Channel currentChannel: null;
@@ -29,6 +29,10 @@ Audio {
 
     onStatusChanged: {
         console.debug("*** STATUS: "+status)
+    }
+
+    onSourceChanged: {
+        console.debug("*** SOURCE IS: "+source)
     }
 
     function toggle() {
