@@ -18,7 +18,10 @@ Item {
         var url=getProgramDataUrl(date);
         programsModel.clear();
         if (url) {
+            console.debug("URL:" +url)
             downloader.download(url,'');
+        } else {
+            console.debug("URL not set");
         }
     }
 
