@@ -15,6 +15,13 @@ Page {
         currentChannel=root.getChannelObjectFromId(currentChannelIndex);
     }
 
+    /*
+    ProgramPage {
+        id: programPage
+        channel: currentChannel
+    }
+    */
+
     SilicaListView {
         id: channelList
         anchors.fill: parent;
@@ -72,10 +79,11 @@ Page {
     }
 
     function showChannelPrograms(index) {
-        pageStack.push(programPage, { channel: currentChannel } );
+        // pageStack.push(programPage, { channel: currentChannel } );
+        pageStack.push(programPage);
+        programPage.channel=currentChannel;
+        programPage.reset();
     }
-
-
 
     Component {
         id: contextMenuComponent
@@ -94,16 +102,15 @@ Page {
                     showChannel(channelList.currentIndex);
                 }
             }
-
-            /*
             MenuItem {
                 text: qsTr("Programs")
-                visible: currentChannel!==null && currentChannel.hasProgram;
+                enabled: false;
+                visible: false;
+                // enabled: currentChannel!==null && currentChannel.hasProgram;
                 onClicked: {                    
                     showChannelPrograms(channelList.currentIndex);
                 }
-            }
-            */
+            }            
         }
     }
 }
