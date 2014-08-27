@@ -23,6 +23,11 @@ FileDownloader::FileDownloader(QObject* parent)
     m_networkAccessManager->setCache(m_networkDiskCache);
 }
 
+FileDownloader::~FileDownloader() {
+
+}
+
+
 void FileDownloader::download(const QUrl url, const QString destination)
 {
     QNetworkRequest request(url);
@@ -88,10 +93,6 @@ void FileDownloader::onGetReply()
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     bool r=true;
     qint64 w=0;
-
-    // Is this even needed?
-    if (!reply)
-        return;
 
     m_httpcode=reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     QVariant rUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute);

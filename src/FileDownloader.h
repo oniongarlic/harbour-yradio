@@ -25,6 +25,7 @@ class FileDownloader : public QObject
 
 public:
     FileDownloader(QObject* parent = 0);
+    virtual ~FileDownloader();
 
 public Q_SLOTS:
     void download(const QUrl url, const QString destination);
@@ -53,10 +54,10 @@ private:
 
     void setData(QByteArray data);
 
-    bool m_loading;
-    double m_progress;
-    bool m_usecache;
     int m_httpcode;
+    double m_progress;
+    bool m_loading;    
+    bool m_usecache;    
 
     QFile m_dest;
     QFile m_temp;
