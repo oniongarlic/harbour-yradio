@@ -8,6 +8,7 @@ Page {
 
     property RadioPlayer player: null;
     property ChannelsPage channels: null;
+    property ProgramPage programs: null;
 
     // Create an attached page of the channels for quick access, this might be a Favorites in the future, lets see how it goes...
     // we do it here as the pageStack is still busy on the onCompleted signal for some odd reason.
@@ -18,9 +19,25 @@ Page {
         }
     }
 
-    ProgramPage {
+    Component {
         id: programPage
-        channel: root.currentChannel
+        ProgramPage {
+
+        }
+    }
+
+    function showProgramsPage() {
+        if (programs==null)
+            programs=programPage.createObject(page);
+
+        programs.channel=root.currentChannel;
+        console.debug("Pushing program page")
+
+        pageStack.push(programs);
+        console.debug("Program page pushed");
+
+        programs.reset();
+        console.debug("Program page reset");
     }
 
     SilicaFlickable {
@@ -46,11 +63,7 @@ Page {
             MenuItem {
                 text: qsTr("Programs")
                 onClicked: {
-                    console.debug("Pushing program page")
-                    // pageStack.push(programPage, { channel: root.currentChannel } );
-                    pageStack.push(programPage);
-                    programPage.reset();
-                    console.debug("Program page pushed");
+                    showProgramsPage();
                 }
                 enabled: root.currentChannel===null ? false : root.currentChannel.hasProgram;
             }            
@@ -116,6 +129,7 @@ Page {
                     playPanel.show();
                 }
             }
+
         }
     }
     DockedPanel {
