@@ -25,7 +25,7 @@ Page {
 
     ProgramsModel {
         id: programsModel
-        programId: channel.programInfoId
+        programId: channel ? channel.programInfoId : ''
     }
 
     Component.onCompleted: {
