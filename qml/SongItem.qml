@@ -14,7 +14,8 @@ Column {
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
         width: parent.width
-        color: Theme.highlightColor
+        wrapMode: Text.WordWrap
+        color: Theme.primaryColor
         font.pixelSize: Theme.fontSizeMedium
         text: song!==null ? song.artist : '';
     }
@@ -25,6 +26,7 @@ Column {
         wrapMode: Text.WordWrap
         width: parent.width
         font.pixelSize: Theme.fontSizeSmall
+        color: Theme.secondaryColor
         text: song!==null ? song.title : '';
     }
 }
