@@ -39,10 +39,12 @@ PRE_TARGETDEPS += compiler_updateqm_make_all
 
 OTHER_FILES += qml/*.qml \
     qml/cover/*.qml \
+    qml/cover/*.png \
     qml/pages/*.qml \
     qml/models/*.qml \
     qml/*.js \
-    qml/yle.xml rpm/*.yaml
+    qml/yle.xml rpm/*.yaml harbour-yradio.desktop \
+    qml/ActionBar.qml
 
 
 RESOURCES += \
