@@ -20,6 +20,8 @@ ApplicationWindow
     // The current channel index id into the channel model
     property int channelId: -1;
 
+    allowedOrientations: Orientation.All
+
     Component.onCompleted: {
         loadArtistImage=settings.getBool("loadArtistImages", true);
         streamQuality=settings.getInt("streamQuality", 1);
@@ -97,7 +99,7 @@ ApplicationWindow
         Channel {
             id: currentChannel
         }
-    }
+    }        
 
     Dialog {
         id: errorDialog;
@@ -130,7 +132,7 @@ ApplicationWindow
 
     RadioPlayer {
         id: radioPlayer
-         source: currentChannel===null ? '' : currentChannel.getStreamUrl(streamQuality);
+        source: currentChannel===null ? '' : currentChannel.getStreamUrl(streamQuality);
 
         onError: {            
             switch (status) {
@@ -141,6 +143,15 @@ ApplicationWindow
             default:
             }
         }
+    }
+
+    bottomMargin: actionBar.visibleSize;
+
+    ActionBar {
+        id: actionBar;
+        visible: currentChannel===null ? false : true;
+        player: radioPlayer
+        z: 2
     }
 
     // Go to next channel in list.

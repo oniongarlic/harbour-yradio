@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtMultimedia 5.0
 import ".."
 
 Page {
@@ -42,8 +41,7 @@ Page {
 
     SilicaFlickable {
         id: mainFlickable
-        anchors.fill: parent
-        anchors.bottomMargin: playPanel.expanded ? playPanel.visibleSize : 0;
+        anchors.fill: parent        
 
         VerticalScrollDecorator { flickable: mainFlickable }
 
@@ -77,7 +75,13 @@ Page {
             width: page.width
             spacing: Theme.paddingMedium
             PageHeader {
-                title: "Y-Radio"
+                title: root.currentChannel===null ? "Y-Radio" : root.currentChannel.name;
+                MouseArea {
+                    anchors.fill: parent;
+                    onClicked: {
+                        pageStack.push(channelsPage);
+                    }
+                }
             }
 
             BackgroundItem {
@@ -97,24 +101,6 @@ Page {
                 onClicked: pageStack.push(channelsPage);
             }
 
-            BackgroundItem {
-                visible: root.currentChannel!==null;
-                width: parent.width
-                height: cl.height
-                Label {
-                    id: cl
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    text: root.currentChannel===null ? '' : root.currentChannel.name;
-                    font.pixelSize: Theme.fontSizeLarge
-                    wrapMode: Text.WordWrap
-                    width: parent.width/2
-                }
-                onClicked: {
-                    pageStack.push(channelsPage);
-                }
-            }
-
             SongInfo {
                 id: songInfo;
                 visible: infoId!==''
@@ -126,12 +112,13 @@ Page {
                 }
                 enabled: player.playing && infoId!=='';
                 onClicked: {
-                    playPanel.show();
+                    // playPanel.show();
                 }
             }
 
         }
     }
+    /*
     DockedPanel {
         id: playPanel
         width: parent.width
@@ -165,6 +152,7 @@ Page {
             }
         }
     }
+    */
 }
 
 
