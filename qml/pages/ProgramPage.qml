@@ -61,26 +61,44 @@ Page {
         delegate: Component {
             id: programItem
             ListItem {
-                menu: contextMenuComponent
-                showMenuOnPressAndHold: true
+
+                // XXX: Add when we can do something with the data (aka add to calendar)
+                //menu: contextMenuComponent
+                //showMenuOnPressAndHold: true
+
+                property bool isSelected: programList.currentIndex==index && index>0
+                contentHeight: Theme.paddingMedium*2 + (isSelected ? programBaseInfo.height+programSummary.height : programBaseInfo.height);
+
                 onClicked: {
-                    programList.currentIndex=index;                    
-                    infoDialog.open();
+                    if (programList.currentIndex==index) {
+                        programList.currentIndex=-1;
+                        return;
+                    }
+
+                    var p=programsModel.getProgramObject(index);
+                    programSummary.text=p.description;
+                    programList.currentIndex=index;
+                    // infoDialog.open();
                 }
                 onPressAndHold: {
                     programList.currentIndex=index;                    
                 }
+
+                anchors.margins: Theme.paddingMedium;
+
                 Row {
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.margins: Theme.paddingLarge
-                    height: Math.max(nameLabel.paintedHeight, timeLabel.paintedHeight);
+                    id: programBaseInfo;
+                    anchors.left: parent.left;
+                    anchors.right: parent.right;
+                    anchors.margins: Theme.paddingMedium;
+                    // anchors.verticalCenter: parent.verticalCenter;
                     Label {
                         id: timeLabel
-                        text: Qt.formatTime(startTime, "hh:mm"); //  du.formatTime(startTime.substring(0,19));
+                        text: "<b>"+Qt.formatTime(startTime, "hh:mm")+"</b>"; // XXX: Use user locale format
+                        //text: "<b>"+Qt.formatTime(startTime)+"</b>"; // XXX: is this ok? Nope, no need for seconds
                         width: parent.width/5;
                         wrapMode: Text.NoWrap;
-                        font.pixelSize: Theme.fontSizeLarge;
+                        font.pixelSize: Theme.fontSizeMedium;
                     }
 
                     Label {
@@ -89,12 +107,22 @@ Page {
                         elide: Text.ElideRight
                         font.pixelSize: Theme.fontSizeMedium;
                         verticalAlignment: Text.AlignVCenter;
-                        horizontalAlignment: Text.AlignLeft
+                        horizontalAlignment: Text.AlignLeft;
                         text: programName;
                         textFormat: Text.PlainText;
-                        width: parent.width-timeLabel.width
-
+                        width: parent.width-timeLabel.width                        
                     }
+                }
+                Label {
+                    id: programSummary
+                    visible: programList.currentIndex==index ? true : false;
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere;
+                    anchors.top: programBaseInfo.bottom
+                    font.pixelSize: Theme.fontSizeExtraSmall;
+                    horizontalAlignment: Text.AlignJustify;
+                    anchors.margins: Theme.paddingMedium;
+                    anchors.left: parent.left
+                    anchors.right: parent.right
                 }
             }
         }
