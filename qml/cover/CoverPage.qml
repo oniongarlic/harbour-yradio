@@ -6,16 +6,9 @@ import ".."
 CoverBackground {
 
     property RadioPlayer player;    
-    property Image artistImage;
+    property Image artistImage;    
 
     /*
-      xxx: hmm, hmm, hmm..
-    Image {
-        anchors.horizontalCenter: parent.horizontalCenter
-
-    }
-    */
-
     Label {
         text: "Y-Radio"
         font.pixelSize: Theme.fontSizeLarge
@@ -23,10 +16,11 @@ CoverBackground {
         anchors.horizontalCenter: parent.horizontalCenter
         color: Theme.highlightColor
     }
+    */
 
     CoverPlaceholder {
         text: player.currentChannel===null ? qsTr("No channel selected") : player.currentChannel.name;
-        // icon: artistImage;
+        icon.source: "cover-icon.png"
     }
 
     CoverActionList {
