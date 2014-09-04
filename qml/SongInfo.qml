@@ -76,6 +76,7 @@ BackgroundItem {
             width: parent.width
             font.pixelSize: Theme.fontSizeLarge
             text: ''
+            visible: text==='' ? false : true;
         }
 
         Label {
@@ -96,6 +97,7 @@ BackgroundItem {
                 anchors.horizontalCenter: parent.horizontalCenter
                 song: curSong;
                 enabled: showArtistImage && hasSong;
+                opacity: 0.9
             }
         }
 
