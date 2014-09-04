@@ -54,12 +54,12 @@ Page {
                 }                
                 Label {
                     // XXX: For now, until we load more channel data
-                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenter: parent.verticalCenter;
                     anchors.horizontalCenter: parent.horizontalCenter;
                     width: parent.width;
                     wrapMode: Text.WordWrap
                     font.pixelSize: Theme.fontSizeMedium;
-                    horizontalAlignment: Text.AlignHCenter
+                    horizontalAlignment: Text.AlignHCenter;
                     text: name;
                     color: ListView.isCurrentItem ? Theme.highlightColor : Theme.primaryColor
                 }
