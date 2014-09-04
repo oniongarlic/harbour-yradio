@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     Settings *settings;
     DateUtils *dateutils;
-    const QString applicationVersion("1.0.4");
+    const QString applicationVersion("1.0.5");
 
     qmlRegisterType<FileDownloader>("harbour.yradio", 1, 0, "FileDownloader");
 
