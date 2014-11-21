@@ -54,13 +54,19 @@ Page {
     }
 
     SilicaFlickable {
+        id: aboutFlickable
         anchors.fill: parent
+        contentHeight: aboutColumn.height
+
+        VerticalScrollDecorator { flickable: aboutFlickable }
 
         Column {
-            id: aboutColumn
-            anchors.fill: parent;
-            anchors.margins: Theme.paddingLarge
+            id: aboutColumn            
+            width: parent.width
             spacing: Theme.paddingLarge
+            anchors.leftMargin: Theme.paddingMedium
+            anchors.rightMargin: Theme.paddingMedium
+
             PageHeader {
                 title: "Y-Radio "+versionStr
             }

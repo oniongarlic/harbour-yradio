@@ -16,12 +16,15 @@ Page {
 
     SilicaFlickable {
         anchors.fill: parent
+        contentHeight: cs.height
 
         Column {
             id: cs
-            anchors.fill: parent
+            width: parent.width
             spacing: Theme.paddingLarge
-            anchors.margins: Theme.paddingLarge
+            anchors.leftMargin: Theme.paddingMedium
+            anchors.rightMargin: Theme.paddingMedium
+
             PageHeader {
                 title: qsTr("Settings")
             }
