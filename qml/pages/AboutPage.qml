@@ -4,6 +4,8 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
+    allowedOrientations: Orientation.All
+
     property string versionStr: appVersion;
 
     property string helpText: qsTr("Unofficial YLE Radio application for Sailfish OS. Listen to the radio streams, see what is playing.")+
@@ -84,7 +86,7 @@ Page {
                 text: "<style>a { color: #f0f0ff; display: block; margin-left: auto; margin-right: auto;}</style>"+
                       "<a href='https://twitter.com/oniongarlic'>@oniongarlic</a><br/>"+
                       "<a href='mailto:onion@tal.org'>onion@tal.org</a><br/>"+
-                      "<a href='http://www.tal.org/'>www.tal.org</a>"
+                      "<a href='http://www.tal.org/projects/y-radio'>www.tal.org</a>"
                 horizontalAlignment: Text.AlignHCenter
                 textFormat: Text.RichText
                 onLinkActivated: Qt.openUrlExternally(link)
@@ -112,7 +114,7 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr('Flattr it!')
                 onClicked: {
-                    Qt.openUrlExternally("https://flattr.com/submit/auto?user_id=oniongarlic&url=http://maemo.tal.org/index.php/maemo:yradio&title=YRadio&language=en_GB&tags=jolla&category=software");
+                    Qt.openUrlExternally("https://flattr.com/submit/auto?user_id=oniongarlic&url=http://www.tal.org/projects/y-radio&title=YRadio&language=en_GB&tags=jolla&category=software");
                 }
             }
         }
