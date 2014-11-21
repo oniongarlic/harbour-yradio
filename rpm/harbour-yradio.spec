@@ -13,7 +13,7 @@ Name:       harbour-yradio
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Y-Radio
-Version:    1.0.5
+Version:    1.0.6
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2
