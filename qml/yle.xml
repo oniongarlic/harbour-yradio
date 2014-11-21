@@ -115,6 +115,20 @@
   </channel>
 
   <channel>
+        <name>Elävän Arkiston nettiradio</name>
+        <category></category>
+        <streams>
+        <stream type="rtsp" quality="low">rtsp://rtspstreamer.yle.fi/radio/yleliveradiohd_8_64@113885</stream>
+        </streams>
+        <songInfo></songInfo>
+        <progInfo></progInfo>
+        <somes>
+         <some type="web">http://yle.fi/elavaarkisto/</some>
+         <some type="facebook">https://www.facebook.com/elavaarkisto</some>
+        </somes>
+  </channel>
+
+  <channel>
 	<name>YLE Radio Vega (Åboland)</name>
         <category>Radio Vega</category>
 	<streams>
