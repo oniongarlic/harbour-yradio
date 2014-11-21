@@ -7,6 +7,8 @@ Page {
 
     property int quality: root.streamQuality;
 
+    allowedOrientations: Orientation.All
+
     onQualityChanged: {
         root.streamQuality=quality;
         qualityMenu.changed=true;
@@ -77,13 +79,15 @@ Page {
                 visible: qualityMenu.changed;
             }
             */
-            /*
+
             TextSwitch {
                 id: autoPlayLast
-                text: qsTr("Autoplay on start");
-                description: qsTr("Start playback of last used channel on application startup.");
+                text: qsTr("Autoplay channel");
+                description: qsTr("Autostart playback selected channel.");
+                checked: root.autostartChannel
+                onCheckedChanged: root.autostartChannel=checked;
             }
-            */
+
 
             TextSwitch {
                 id: loadArtistImages
