@@ -8,6 +8,8 @@ Page {
     property alias currentChannelIndex: channelList.currentIndex;
     property Channel currentChannel: null;
 
+    allowedOrientations: Orientation.All
+
     onCurrentChannelIndexChanged: {
         if (currentChannel!==null)
             currentChannel.destroy();
