@@ -9,6 +9,8 @@ Page {
     property ChannelsPage channels: null;
     property ProgramPage programs: null;
 
+    allowedOrientations: Orientation.All
+
     // Create an attached page of the channels for quick access, this might be a Favorites in the future, lets see how it goes...
     // we do it here as the pageStack is still busy on the onCompleted signal for some odd reason.
     onStatusChanged: {
@@ -59,11 +61,13 @@ Page {
                 onClicked: pageStack.push(channels);
             }            
             MenuItem {
-                text: qsTr("Programs")
+                text: qsTr("Programs")                
                 onClicked: {
                     showProgramsPage();
                 }
-                enabled: root.currentChannel===null ? false : root.currentChannel.hasProgram;
+                // XXX: Force disable until we have switched over to public YLE API (old one is broken now)
+                enabled: false;
+                // enabled: root.currentChannel===null ? false : root.currentChannel.hasProgram;
             }            
             busy: player.buffering
         }
