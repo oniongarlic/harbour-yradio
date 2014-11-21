@@ -10,6 +10,7 @@ ApplicationWindow
     id: root
 
     property bool loadArtistImage: false;
+    property bool autostartChannel: false;
     property int streamQuality: 1;
     property int previousRadioChannel: -1;
     property alias radioSource: radioPlayer.source;
@@ -24,6 +25,7 @@ ApplicationWindow
 
     Component.onCompleted: {
         loadArtistImage=settings.getBool("loadArtistImages", true);
+        autostartChannel=settings.getBool("autostartChannel", false);
         streamQuality=settings.getInt("streamQuality", 1);
         previousRadioChannel=settings.getInt("previousRadioChannel", -1);
     }
@@ -210,7 +212,9 @@ ApplicationWindow
         radioPlayer.currentChannel=currentChannel;
 
         if (wasPlaying && startPlay)
-            radioPlayer.play();        
+            radioPlayer.play();
+        else if (autostartChannel)
+            radioPlayer.play();
     }
 }
 
