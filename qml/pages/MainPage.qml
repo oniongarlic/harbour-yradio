@@ -115,9 +115,6 @@ Page {
                         loadInitialInfo();
                 }
                 enabled: player.playing && infoId!=='';
-                onClicked: {
-                    // playPanel.show();
-                }
             }
 
         }

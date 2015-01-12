@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 import "mixradio.js" as NMIX
 import "models";
 
-BackgroundItem {
+Item {
     id: songinfo;
     property int updateInterval: 180;
     property alias enabled: timer.running;
@@ -14,22 +14,17 @@ BackgroundItem {
 
     property Program _curProgram;
 
-    property bool hasSong: curSong!==null;    
+    property bool hasSong: curSong!==null;
+    property bool hasNextSong: nextSong!==null;
+    property bool hasNextNextSong: nextNextSong!==null;
+
     property bool showArtistImage: true;
 
     property string infoId: null;
 
     anchors.left: parent.left
     anchors.right: parent.right
-    height: c.height;
-
-    onPressAndHold: {
-        // songMenu.open();
-    }
-
-    onClicked: {
-
-    }
+    height: c.height;    
 
     onInfoIdChanged: {
         reset();
@@ -41,22 +36,6 @@ BackgroundItem {
         nextNextSong=null;
         curProgram.text='';
     }
-
-    /*
-    Menu {
-        id: songMenu
-        // visualParent: pageStack
-        MenuLayout {
-            MenuItem {
-                text: qsTr("Refresh"); onClicked: updateAll();
-            }
-            MenuItem {
-                text: qsTr("Search"); onClicked: doWebSearch(curSongArtist, curSong);
-                enabled: hasSong;
-            }
-        }
-    }
-    */
 
     function doWebSearch(artist, song) {
         var url="http://www.google.com/m/search";
@@ -92,13 +71,6 @@ BackgroundItem {
             id: curSongItem
             song: curSong;
             visible: hasSong;
-            ArtistImage {
-                id: artistImage;
-                anchors.horizontalCenter: parent.horizontalCenter
-                song: curSong;
-                enabled: showArtistImage && hasSong;
-                opacity: 0.9
-            }
         }
 
         Label {
@@ -113,19 +85,13 @@ BackgroundItem {
         SongItem {
             id: nextSongItem
             song: nextSong;
-            visible: hasSong;
-            ArtistImage {
-                id: artistNextImage;
-                anchors.horizontalCenter: parent.horizontalCenter
-                song: nextSong;
-                enabled: showArtistImage && !hasSong && nextSong!==null;
-            }
+            visible: hasNextSong;
         }
 
         SongItem {
             id: nextNextSongItem
             song: nextNextSong;
-            visible: hasSong;
+            visible: hasNextNextSong;
         }
     }
 
