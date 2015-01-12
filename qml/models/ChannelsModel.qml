@@ -6,6 +6,11 @@ XmlListModel {
     source: "../yle.xml"
     query: "/radio/channels/channel"
 
+    property bool busy: status==XmlListModel.Loading;
+
+    signal loaded();
+    signal loadError();
+
     XmlRole { name: "name"; query: "name/string()"; isKey: true; }
     XmlRole { name: "category"; query: "category/string()"; }
     XmlRole { name: "url"; query: "somes/some[@type='web']/string()" }
@@ -26,6 +31,10 @@ XmlListModel {
     XmlRole { name: "some_instagram"; query: "somes/some[@type='instagram']/string()" }
     // XmlRole { name: "some_"; query: "somes/some[@type='']/string()" }
 
+    function setSource(sid) {
+        source="../"+sid+".xml";
+    }
+
     function isValidId(id) {
         if (id<0)
             return false;
@@ -33,4 +42,20 @@ XmlListModel {
             return false;
         return true;
     }
+
+    onStatusChanged: {
+        switch (status) {
+        case XmlListModel.Ready: {
+            console.debug("Channel XML loaded into model");
+            model.loaded();
+        }
+            break;
+        case XmlListModel.Error: {
+            console.debug("Channel XML load failed: "+errorString())
+            model.loadError();
+        }
+            break;
+        }
+    }
+
 }
