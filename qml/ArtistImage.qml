@@ -4,8 +4,8 @@ import "mixradio.js" as NMIX
 
 Image {
     id: artistImage    
-    width: 320;
-    height: 320;
+    width: size;
+    height: size;
     fillMode: Image.PreserveAspectFit
     cache: true
     asynchronous: true    
@@ -16,6 +16,10 @@ Image {
     property bool isValid: source!=='' && status!==Image.Error;
     property bool enabled: false;
 
+    property bool showAnonymous: false
+
+    property int size: 320
+
     opacity: isValid ? 1.0 : 0.0;
 
     Behavior on opacity { NumberAnimation { duration: 400; easing.type: Easing.InOutCubic} }
@@ -25,6 +29,13 @@ Image {
         visible: running;
         running: artistImage.status==Image.Loading;
         // size: BusyIndicatorSize.Medium;
+    }
+
+    onStatusChanged: {        
+        console.debug("ArtistImage status: "+status)
+        if (status==Image.Error && showAnonymous) {
+            // XXX: Use a dummy image in case loading fails
+        }
     }
 
     function getArtistImageUrl_NokiaMixRadio(song) {
