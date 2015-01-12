@@ -93,17 +93,18 @@ Page {
 
 
             TextSwitch {
-                id: loadArtistImages
-                checked: root.loadArtistImage;
+                id: loadArtistImages                
                 text: qsTr("Load artist images");
                 description: qsTr("Enabled downloading of a random image of the currently playing artist. Data usage increases.");
+                checked: root.loadArtistImage;
                 onCheckedChanged: root.loadArtistImage=checked;
             }
 
             Label {
                 text: qsTr("By enabling artist image loading you agree the the Nokia MixRadio <a href='http://www.nokia.com/global/privacy/privacy/service-terms/nokia-service-terms/'>Nokia Service Terms and Privacy Policy</a>");
                 font.pixelSize: Theme.fontSizeSmall;
-                width: parent.width;
+                anchors.left: parent.left;
+                anchors.right: parent.right;
                 visible: loadArtistImages.checked;
                 wrapMode: Text.WordWrap;
                 textFormat: Text.RichText;
