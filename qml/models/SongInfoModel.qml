@@ -13,6 +13,8 @@ Item {
     signal updated();
     signal empty();
 
+    property bool busy: songInfoModel.status==XmlListModel.Loading;
+
     Component {
         id: songComponent
         Song {
