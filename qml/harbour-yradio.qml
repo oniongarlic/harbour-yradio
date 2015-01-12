@@ -12,6 +12,8 @@ ApplicationWindow
     property bool loadArtistImage: false;
     property bool autostartChannel: false;
     property int streamQuality: 1;
+
+    // The saved channel id
     property int previousRadioChannel: -1;
     property alias radioSource: radioPlayer.source;
 
@@ -19,9 +21,7 @@ ApplicationWindow
     property Channel currentChannel: null;
 
     // The current channel index id into the channel model
-    property int channelId: -1;
-
-    allowedOrientations: Orientation.All
+    property int channelId: -1;    
 
     Component.onCompleted: {
         loadArtistImage=settings.getBool("loadArtistImages", true);
@@ -35,14 +35,9 @@ ApplicationWindow
     onChannelIdChanged: settings.setInt("previousRadioChannel", channelId);
     onPreviousRadioChannelChanged: {
         console.debug("*** Saved channel index is: "+previousRadioChannel);
-        console.debug("Available channels: " +channelsModel.count);
-        if (previousRadioChannel>-1 && previousRadioChannel<=channelsModel.count) {
-            console.debug("Using saved channel");
-            // XXX: Yep, todo!            
-            channelId=previousRadioChannel;
-            currentChannel=getChannelObjectFromId(channelId);
-        }
     }
+
+    allowedOrientations: Orientation.All
 
     initialPage: Component {
         MainPage {
@@ -94,6 +89,16 @@ ApplicationWindow
 
     ChannelsModel {
         id: channelsModel
+        onLoadError: {
+            errorDialog.errorMsg="Failed to load channel data: "+errorString();
+            errorDialog.open();
+        }
+        onLoaded: {
+            if (previousRadioChannel>0) {
+                console.debug("Defaulting channel to previously used one: "+previousRadioChannel)
+                setChannel(previousRadioChannel, autostartChannel);
+            }
+        }
     }
 
     Component {
@@ -184,9 +189,9 @@ ApplicationWindow
                                       });
         c.social.web=cdata.some_web;
         c.social.twitter=cdata.some_twitter;
-        c.social.facebook= cdata.some_facebook;
-        c.social.youtube= cdata.some_youtube;
-        c.social.instagram= cdata.some_instagram;
+        c.social.facebook=cdata.some_facebook;
+        c.social.youtube=cdata.some_youtube;
+        c.social.instagram=cdata.some_instagram;
 
         return c;
     }
@@ -198,12 +203,22 @@ ApplicationWindow
         return getChannelObject(cdata);
     }
 
-    function setChannel(id, startPlay) {
+    function setChannel(cid, startPlay) {
         var wasPlaying=radioPlayer.playing;
         var cdata;
 
-        channelId=id;
-        cdata=channelsModel.get(id);
+        if (cid<0 || cid>channelsModel.count) {
+            console.debug("Invalid channel id");
+            return false;
+        }
+
+        channelId=cid;
+        cdata=channelsModel.get(channelId);
+
+        if (!cdata) {
+            console.debug("Channel id outside data range, no data found: "+channelId);
+            return false;
+        }
 
         console.debug("CH: "+cdata.name);
         currentChannel=getChannelObject(cdata);
@@ -215,6 +230,7 @@ ApplicationWindow
             radioPlayer.play();
         else if (autostartChannel)
             radioPlayer.play();
+        return true;
     }
 }
 
