@@ -17,6 +17,8 @@ ApplicationWindow
     property int previousRadioChannel: -1;
     property alias radioSource: radioPlayer.source;
 
+    property int sleepMinutes: 4;
+
     // The channel information object of the currently selected channel
     property Channel currentChannel: null;
 
@@ -27,9 +29,11 @@ ApplicationWindow
         loadArtistImage=settings.getBool("loadArtistImages", true);
         autostartChannel=settings.getBool("autostartChannel", false);
         streamQuality=settings.getInt("streamQuality", 1);
+        sleepMinutes=settings.getInt("sleepMinutes", 4);
         previousRadioChannel=settings.getInt("previousRadioChannel", -1);
     }
 
+    onSleepMinutesChanged: settings.setInt("sleepMinutes", sleepMinutes);
     onLoadArtistImageChanged: settings.setBool("loadArtistImages", loadArtistImage);
     onStreamQualityChanged: settings.setInt("streamQuality", streamQuality);
     onChannelIdChanged: settings.setInt("previousRadioChannel", channelId);

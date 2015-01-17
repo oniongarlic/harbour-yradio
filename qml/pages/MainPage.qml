@@ -27,6 +27,10 @@ Page {
         }
     }
 
+    RemorsePopup {
+        id: sleepStop
+    }
+
     function showProgramsPage() {
         if (programs==null)
             programs=programPage.createObject(page);
@@ -57,9 +61,18 @@ Page {
                 onClicked: pageStack.push(settingsPage);
             }
             MenuItem {
+                text: qsTr("Sleep timer")
+                onClicked: {
+                    sleepStop.execute(qsTr("Stopping playback"),
+                                    function() { player.stop() }
+                                    , 1000*60*root.sleepMinutes);
+                }
+                enabled: player.playing
+            }
+            MenuItem {
                 text: qsTr("Channels")
                 onClicked: pageStack.push(channels);
-            }            
+            }
             MenuItem {
                 text: qsTr("Programs")                
                 onClicked: {
@@ -119,41 +132,6 @@ Page {
 
         }
     }
-    /*
-    DockedPanel {
-        id: playPanel
-        width: parent.width
-        height: dpc.height + Theme.paddingLarge*2;
-        dock: Dock.Bottom
-        open: root.currentChannel===null ? false : true;
-
-        Column {
-            id: dpc
-            width: parent.width
-            spacing: Theme.paddingSmall;
-            IconButton {
-                anchors.horizontalCenter: parent.horizontalCenter
-                icon.source: player.playing ? "image://theme/icon-l-pause" : "image://theme/icon-l-play"
-                enabled: player.source ? true: false;
-                onClicked: {
-                    player.toggle();                    
-                }
-            }
-
-            ProgressBar {
-                id: buffering
-                anchors.horizontalCenter: parent.horizontalCenter;
-                value: player.bufferProgress;
-                width: parent.width/1.5
-                visible: true;
-                opacity: player.buffering ? 1.0 : 0.0;
-                minimumValue: 0;
-                maximumValue: 1;
-                Behavior on opacity { NumberAnimation { duration: 750; } }
-            }
-        }
-    }
-    */
 }
 
 

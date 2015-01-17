@@ -6,12 +6,19 @@ Page {
     id: page
 
     property int quality: root.streamQuality;
+    property int sleepTime: root.sleepMinutes
 
     allowedOrientations: Orientation.All
 
     onQualityChanged: {
+        console.debug("[Settings] Quality:"+quality);
         root.streamQuality=quality;
         qualityMenu.changed=true;
+    }
+
+    onSleepTimeChanged: {
+        console.debug("[Settings] Sleeptime:"+sleepTime);
+        root.sleepMinutes=sleepTime
     }
 
     SilicaFlickable {
@@ -40,6 +47,36 @@ Page {
                     MenuItem { text: qsTr("Low"); onClicked: page.quality=1; }
                     // MenuItem { text: qsTr("Medium"); onClicked: page.quality=2; }
                     // MenuItem { text: qsTr("High"); onClicked: page.quality=3; }
+                }
+
+            }
+
+            ComboBox {
+                id: sleepTimerMenu;
+                label: qsTr("Sleep timer");
+                description: qsTr("Sleep timer timeout in minutes");
+                currentIndex: getSleepTimerIndex(page.sleepTime);
+
+                menu: ContextMenu {
+                    MenuItem { text: "2"; onClicked: page.sleepTime=2; }
+                    MenuItem { text: "4"; onClicked: page.sleepTime=4; }
+                    MenuItem { text: "8"; onClicked: page.sleepTime=8; }
+                    MenuItem { text: "12"; onClicked: page.sleepTime=12; }
+                }
+                // Map index to value
+                function getSleepTimerIndex(i) {
+                    switch (i) {
+                    case 2:
+                        return 0;
+                    case 4:
+                        return 1;
+                    case 8:
+                        return 2;
+                    case 12:
+                        return 3;
+                    default:
+                        return 1;
+                    }
                 }
             }
 
