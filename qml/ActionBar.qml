@@ -21,18 +21,19 @@ DockedPanel {
     Column {
         id: dpc
         width: parent.width
-        // spacing: Theme.paddingSmall;
+        spacing: Theme.paddingSmall;
 
         ProgressBar {
             id: buffering
             anchors.horizontalCenter: parent.horizontalCenter;
             value: player.bufferProgress;
             width: parent.width/1.5
-            visible: player.buffering;
-            opacity: player.buffering ? 1.0 : 0.0;
+            visible: player.buffering || player.preparing;
+            opacity: visible ? 1.0 : 0.0;
+            indeterminate: player.preparing
             minimumValue: 0;
             maximumValue: 1;
-            Behavior on opacity { NumberAnimation { duration: 750; } }
+            Behavior on opacity { NumberAnimation { duration: 150; } }
         }
 
         IconButton {
@@ -44,6 +45,5 @@ DockedPanel {
             }
             height: Theme.itemSizeExtraLarge
         }
-
     }
 }
