@@ -6,13 +6,13 @@ Page {
 
     allowedOrientations: Orientation.All
 
-    property string versionStr: appVersion;
+    readonly property string versionStr: appVersion;
 
-    property string helpText: qsTr("Unofficial YLE Radio application for Sailfish OS. Listen to the radio streams, see what is playing.")+
+    readonly property string helpText: qsTr("Unofficial YLE Radio application for Sailfish OS. Listen to the radio streams, see what is playing.")+
                               qsTr("Note: This is a third-party program and is not connected to YLE in any way.")+
                               qsTr("Artist images provided by Nokia MixRadio.");
 
-    property string license: 'This program is free software: you can redistribute it and/or modify ' +
+    readonly property string license: 'This program is free software: you can redistribute it and/or modify ' +
                              'it under the terms of the GNU General Public License as published by ' +
                              'the Free Software Foundation, either version 2 of the License, or ' +
                              '(at your option) any later version.<br /><br />' +
@@ -25,6 +25,10 @@ Page {
                              'You should have received a copy of the GNU General Public License ' +
                              'along with this program. If not, see <a href="http://www.gnu.org/licenses">http://www.gnu.org/licenses</a><br />'
 
+
+    readonly property string homePage: "http://www.tal.org/projects/y-radio?utm_source=about&utm_medium=app&utm_campaign=jolla"
+
+    readonly property string flattrPage: "https://flattr.com/submit/auto?user_id=oniongarlic&url=http://www.tal.org/projects/y-radio&title=YRadio&language=en_GB&tags=jolla&category=software"
 
     Dialog {
         id: licenseDialog
@@ -83,6 +87,15 @@ Page {
                 wrapMode: Text.WordWrap
                 width: parent.width
             }
+
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr('Flattr it!')
+                onClicked: {
+                    Qt.openUrlExternally(flattrPage);
+                }
+            }
+
             Label {
                 id: links
                 font.pixelSize: Theme.fontSizeMedium
@@ -92,7 +105,7 @@ Page {
                 text: "<style>a { color: #f0f0ff; display: block; margin-left: auto; margin-right: auto;}</style>"+
                       "<a href='https://twitter.com/oniongarlic'>@oniongarlic</a><br/>"+
                       "<a href='mailto:onion@tal.org'>onion@tal.org</a><br/>"+
-                      "<a href='http://www.tal.org/projects/y-radio'>www.tal.org</a>"
+                      "<a href='"+homePage+"'>Y-Radio home</a>"
                 horizontalAlignment: Text.AlignHCenter
                 textFormat: Text.RichText
                 onLinkActivated: Qt.openUrlExternally(link)
@@ -101,7 +114,7 @@ Page {
             Label
             {
                 id: copyrightsgpl
-                text: "Copyright 2012-2014\nKaj-Michael Lang";
+                text: "Copyright 2012-2015\nKaj-Michael Lang";
                 anchors.topMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pixelSize: Theme.fontSizeSmall
@@ -116,13 +129,6 @@ Page {
                 onClicked: licenseDialog.open()
             }
 
-            Button {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr('Flattr it!')
-                onClicked: {
-                    Qt.openUrlExternally("https://flattr.com/submit/auto?user_id=oniongarlic&url=http://www.tal.org/projects/y-radio&title=YRadio&language=en_GB&tags=jolla&category=software");
-                }
-            }
         }
     }
 }
