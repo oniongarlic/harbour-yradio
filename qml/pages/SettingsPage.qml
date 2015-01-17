@@ -49,36 +49,7 @@ Page {
                     // MenuItem { text: qsTr("High"); onClicked: page.quality=3; }
                 }
 
-            }
-
-            ComboBox {
-                id: sleepTimerMenu;
-                label: qsTr("Sleep timer");
-                description: qsTr("Sleep timer timeout in minutes");
-                currentIndex: getSleepTimerIndex(page.sleepTime);
-
-                menu: ContextMenu {
-                    MenuItem { text: "2"; onClicked: page.sleepTime=2; }
-                    MenuItem { text: "4"; onClicked: page.sleepTime=4; }
-                    MenuItem { text: "8"; onClicked: page.sleepTime=8; }
-                    MenuItem { text: "12"; onClicked: page.sleepTime=12; }
-                }
-                // Map index to value
-                function getSleepTimerIndex(i) {
-                    switch (i) {
-                    case 2:
-                        return 0;
-                    case 4:
-                        return 1;
-                    case 8:
-                        return 2;
-                    case 12:
-                        return 3;
-                    default:
-                        return 1;
-                    }
-                }
-            }
+            }            
 
             Label {
                 id: bitSize
@@ -119,6 +90,35 @@ Page {
                 visible: qualityMenu.changed;
             }
             */
+
+            ComboBox {
+                id: sleepTimerMenu;
+                label: qsTr("Sleep timer");
+                description: qsTr("Sleep timer timeout in minutes");
+                currentIndex: getSleepTimerIndex(page.sleepTime);
+
+                menu: ContextMenu {
+                    MenuItem { text: "2"; onClicked: page.sleepTime=2; }
+                    MenuItem { text: "4"; onClicked: page.sleepTime=4; }
+                    MenuItem { text: "8"; onClicked: page.sleepTime=8; }
+                    MenuItem { text: "12"; onClicked: page.sleepTime=12; }
+                }
+                // Map index to value
+                function getSleepTimerIndex(i) {
+                    switch (i) {
+                    case 2:
+                        return 0;
+                    case 4:
+                        return 1;
+                    case 8:
+                        return 2;
+                    case 12:
+                        return 3;
+                    default:
+                        return 1;
+                    }
+                }
+            }
 
             TextSwitch {
                 id: autoPlayLast
