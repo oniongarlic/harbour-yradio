@@ -52,6 +52,7 @@ Page {
         VerticalScrollDecorator { flickable: mainFlickable }
 
         PullDownMenu {
+            id: pdm
             MenuItem {
                 text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
@@ -84,6 +85,20 @@ Page {
             }            
             busy: player.buffering
         }
+
+        PushUpMenu {
+            id: pum
+            MenuItem {
+                text: qsTr("Sleep timer")
+                onClicked: {
+                    sleepStop.execute(qsTr("Stopping playback"),
+                                    function() { player.stop() }
+                                    , 1000*60*root.sleepMinutes);
+                }
+                enabled: player.playing
+            }
+        }
+
         contentHeight: column.height
 
         Column {
