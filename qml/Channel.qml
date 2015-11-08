@@ -16,7 +16,8 @@ QtObject {
 
     // Ok, for now all channels have low/med/high
     function getStreamUrl(quality) {
-        return surl_lq;
+        // XXX: Sailfish OS 2.0/gst 1.0: Force HLS streams (High quality)
+        return surl_hq;
         /*
         switch (quality) {
         case 1:
