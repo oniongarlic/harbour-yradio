@@ -76,7 +76,7 @@ Item {
 
         XmlRole { name: "title"; query: "@TITLE/string()" }
         XmlRole { name: "performer"; query: "@PERFORMER/string()" }
-        XmlRole { name: "vocalist"; query: "@VOCALIST/string()" }
+        XmlRole { name: "vocalist"; query: "ROLES/ROLE[1]/PERSON_NAME/string()" }
         XmlRole { name: "start"; query: "@STARTING_TIME/string()" }
         XmlRole { name: "duration"; query: "PUBLISH-DATA/@DURATION/string()"; }
         XmlRole { name: "program"; query: "@PLAYOUT_PROGRAMME_NAME/string()"; }
