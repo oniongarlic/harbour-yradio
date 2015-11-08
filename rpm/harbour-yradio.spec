@@ -13,15 +13,17 @@ Name:       harbour-yradio
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Y-Radio
-Version:    1.0.8
+Version:    1.1.0
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2
-URL:        http://www.tal.org/
+URL:        http://www.tal.org/projects/y-radio
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-yradio.yaml
 Requires:   qt5-qtdeclarative-import-xmllistmodel
-Requires:   sailfishsilica-qt5 >= 0.10.9
+Requires:   qt5-qtmultimedia
+Requires:   qt5-qtdeclarative-import-multimedia
+Requires:   sailfishsilica-qt5 >= 0.21.24.13
 BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10
 BuildRequires:  pkgconfig(Qt5Core)
