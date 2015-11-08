@@ -39,18 +39,19 @@ Page {
             ComboBox {
                 id: qualityMenu;
                 label: qsTr("Stream quality");
-                currentIndex: quality-1;
+                currentIndex: quality-3;
+                enabled: false
 
                 property bool changed: false;
 
                 menu: ContextMenu {
-                    MenuItem { text: qsTr("Low"); onClicked: page.quality=1; }
+                    // MenuItem { text: qsTr("Low"); onClicked: page.quality=1; }
                     // MenuItem { text: qsTr("Medium"); onClicked: page.quality=2; }
-                    // MenuItem { text: qsTr("High"); onClicked: page.quality=3; }
+                    MenuItem { text: qsTr("High"); onClicked: page.quality=3; }
                 }
 
             }            
-
+            /*
             Label {
                 id: bitSize
                 text: getBits(quality);
@@ -81,6 +82,8 @@ Page {
                 visible: quality===3;
                 wrapMode: Text.WordWrap
             }
+            */
+
             /*
             Label {
                 text: qsTr("Restart playback to use new quality setting.");
@@ -98,24 +101,21 @@ Page {
                 currentIndex: getSleepTimerIndex(page.sleepTime);
 
                 menu: ContextMenu {
-                    MenuItem { text: "2"; onClicked: page.sleepTime=2; }
-                    MenuItem { text: "4"; onClicked: page.sleepTime=4; }
-                    MenuItem { text: "8"; onClicked: page.sleepTime=8; }
-                    MenuItem { text: "12"; onClicked: page.sleepTime=12; }
+                    MenuItem { text: "5"; onClicked: page.sleepTime=5; }
+                    MenuItem { text: "10"; onClicked: page.sleepTime=10; }
+                    MenuItem { text: "20"; onClicked: page.sleepTime=20; }
+                    MenuItem { text: "30"; onClicked: page.sleepTime=30; }
+                    MenuItem { text: "40"; onClicked: page.sleepTime=40; }
+                    MenuItem { text: "50"; onClicked: page.sleepTime=50; }
+                    MenuItem { text: "60"; onClicked: page.sleepTime=60; }
                 }
-                // Map index to value
+                // Map value to index
                 function getSleepTimerIndex(i) {
                     switch (i) {
-                    case 2:
+                    case 5:
                         return 0;
-                    case 4:
-                        return 1;
-                    case 8:
-                        return 2;
-                    case 12:
-                        return 3;
                     default:
-                        return 1;
+                        return i/10;
                     }
                 }
             }
@@ -142,6 +142,8 @@ Page {
                 font.pixelSize: Theme.fontSizeSmall;
                 anchors.left: parent.left;
                 anchors.right: parent.right;
+                anchors.leftMargin: Theme.paddingMedium
+                anchors.rightMargin: Theme.paddingMedium
                 visible: loadArtistImages.checked;
                 wrapMode: Text.WordWrap;
                 textFormat: Text.RichText;
